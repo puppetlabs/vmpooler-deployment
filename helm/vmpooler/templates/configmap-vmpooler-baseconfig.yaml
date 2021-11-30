@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vmpooler-baseconfig
+data:
+  vmpooler.yaml: |
+    ---
+    {{- with .Values.baseconfig_extras }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+
+    :tagfilter:
+      project: '^([^/]+)'
+
+    :auth:
+      {{- with .Values.auth }}
+        {{- toYaml . | nindent 6 }}
+      {{- end }}
+    :prometheus:
+      prefix: {{ .Values.vmpoolerInstance }}

@@ -1,0 +1,171 @@
+# this is used for the site name, the metrics prefix, and is
+# the hostname in the ingress
+vmpoolerInstance: 'test-instance'
+
+image:
+  repository: vmpooler
+  pullPolicy: Always
+
+configmapName: 'vmpooler-baseconfig'
+sut_domain: 'vmpooler.example.com'
+usage_stats: true
+
+tracing:
+  enabled: 'false'
+  # jaegerHost: 'http://otel-collector.otel-collector.svc:14268/api/traces'
+
+baseconfig_extras: {}
+  # :config:
+  #   backend_weight:
+  #     vmware_cluster1: 0
+  #     vmware_cluster2: 100
+  #     vmware_cluster4: 180
+
+auth:
+  provider: 'dummy'
+  # provider: 'ldap'
+  # :ldap:
+  #   host: 'ldap.example.com'
+  #   port: 636
+  #   encryption:
+  #     :method: :simple_tls
+  #     :tls_options:
+  #       :ssl_version: 'TLSv1_2'
+  #   base:
+  #     - 'ou=dept1,dc=example,dc=com'
+  #     - 'ou=dept2,dc=example,dc=com'
+  #   user_object:
+  #     - 'uid'
+  #     - 'cn'
+
+additionalConfigFiles: '/etc/vmpooler/config/pools.yaml'
+
+api:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 1500m
+      memory: 2Gi
+    limits:
+      cpu: 2000m
+      memory: 2Gi
+
+manager:
+  resources:
+    requests:
+      cpu: 4000m
+      memory: 4Gi
+    limits:
+      cpu: 4000m
+      memory: 4Gi
+  annotations: {}
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  # Letting the name be created automatically will prevent the SA resource from being
+  # shared between multiple instances of vmpooler such as when stage and prod are both
+  # deployed to the same cluster.
+  name: ''
+
+podSecurityContext:
+  fsGroup: 1001
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  runAsNonRoot: true
+  readOnlyRootFilesystem: true
+  runAsUser: 1001
+  runAsGroup: 1001
+
+service:
+  type: ClusterIP
+  port: 4567
+  metricsEnabled: true
+
+ingress:
+  enabled: false
+  # useTLS: true
+  # annotations:
+  #   cert-manager.io/cluster-issuer: letsencrypt-prod
+  #   kubernetes.io/ingress.class: nginx
+  #   kubernetes.io/tls-acme: 'true'
+  #   nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+  # domain: k8s.example.com
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Redis provided by bitnami/redis
+# For a full list of parameters see: https://github.com/bitnami/charts/tree/master/bitnami/redis/
+redis:
+  fullnameOverride: redis
+  cluster:
+    enabled: false
+  networkPolicy:
+    enabled: true
+  securityContext:
+    enabled: true
+    fsGroup: 1001
+    runAsUser: 1001
+  master:
+    resources:
+      requests:
+        cpu: 1000m
+        memory: 2048Mi
+      limits:
+        cpu: 1000m
+        memory: 2048Mi
+    livenessProbe:
+      failureThreshold: 10
+    readinessProbe:
+      failureThreshold: 10
+  metrics:
+    enabled: true
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 200m
+        memory: 256Mi
+
+
+# Pools are listed last becaue the list can be really long when listed here.
+# The default ConfigMap uses the value of the pools key to create pools.yaml.
+# You could, instead, provide your own ConfigMap and specify its name below.
+poolsConfigMapName: vmpooler-pools
+pools:
+  - name: 'almalinux-8-x86_64-pixa4'
+    template: 'templates/cluster2/almalinux-8-x86_64-0.0.2'
+    folder: 'test-instance/cluster2/almalinux-8-x86_64'
+    datastore: 'vmpooler_cluster2'
+    clone_target: 'cluster2'
+    size: 5
+    datacenter: 'pix'
+    provider: 'vsphere-ci67'
+    snapshot_mainMem_ioBlockPages: '2048'
+    snapshot_mainMem_iowait: '5'
+    network: 'vmpooler1'
+  - name: 'centos-6-x86_64-pixa4'
+    alias: [ 'centos-6-x86_64' ]
+    template: 'templates/cluster2/centos-6.8-x86_64-0.0.2-8gb'
+    folder: test-instance/cluster2/centos-6-x86_64'
+    datastore: 'vmpooler_cluster2'
+    clone_target: 'cluster2'
+    size: 0
+    timeout: 5
+    datacenter: 'pix'
+    provider: 'vsphere-ci67'
+    snapshot_mainMem_ioBlockPages: '2048'
+    snapshot_mainMem_iowait: '5'
+    network: 'vmpooler2'

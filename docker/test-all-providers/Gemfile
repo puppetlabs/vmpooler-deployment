@@ -1,0 +1,4 @@
+source ENV['GEM_SOURCE'] || 'https://rubygems.org'
+
+gem 'vmpooler',                    git: 'https://github.com/puppetlabs/vmpooler.git', branch: 'extract-vsphere-provider'
+gem 'vmpooler-vsphere-provider',   git: 'https://github.com/puppetlabs/vmpooler-provider-vsphere.git'

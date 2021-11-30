@@ -1,0 +1,11 @@
+{{- if eq .Values.poolsConfigMapName "vmpooler-pools" -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vmpooler-pools
+data:
+  pools.yaml: |
+    ---
+    :pools:
+      {{- toYaml .Values.pools | nindent 6 }}
+{{- end -}}

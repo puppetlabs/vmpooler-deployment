@@ -1,0 +1,122 @@
+{{- $fullName := include "vmpooler.fullname" . -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fullName }}-api
+  labels:
+    app: {{ $fullName }}-api
+    redis-client: "true"
+    {{- include "vmpooler.labels" . | nindent 4 }}
+    test: liveness
+  annotations:
+    configmap.reloader.stakater.com/reload: "{{ .Values.configmapName }},vmpooler-pools"
+    secret.reloader.stakater.com/reload: 'redis'
+spec:
+  replicas: {{ .Values.api.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ $fullName }}-api
+  template:
+    metadata:
+      labels:
+        app: {{ $fullName }}-api
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "vmpooler.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+      - name: {{ $fullName }}-api
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 12 }}
+        image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+          - containerPort: {{ .Values.service.port }}
+        resources:
+          {{- toYaml .Values.api.resources | nindent 12 }}
+        args:
+          - 'api'
+        livenessProbe:
+          httpGet:
+            path: /api/v1/status
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 40
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /api/v1/status
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 40
+          periodSeconds: 10
+        env:
+        - name: JRUBY_OPTS
+          value: '-J-XX:+UseG1GC'
+        - name: PORT
+          value: {{ .Values.service.port | quote  }}
+        - name: SITE_NAME
+          value: '<b>{{ .Values.vmpoolerInstance }}</b>.{{ .Values.ingress.domain }}'
+        - name: DOMAIN
+          value: {{ .Values.sut_domain }}
+        - name: EXPERIMENTAL_FEATURES
+          value: 'true'
+        - name: USAGE_STATS
+          value: '{{ .Values.usage_stats }}'
+        - name: VMPOOLER_CONFIG_FILE
+          value: /etc/vmpooler/vmpooler.yaml
+        - name: VMPOOLER_TRACING_ENABLED
+          value: '{{ .Values.tracing.enabled }}'
+        - name: VMPOOLER_TRACING_JAEGER_HOST
+          value: '{{ .Values.tracing.jaegerHost }}'
+        - name: EXTRA_CONFIG
+          value: '/etc/vmpooler/config/pools.yaml'
+        - name: REDIS_SERVER
+          value: 'redis-master'
+        - name: ONDEMAND_REQUEST_TTL
+          value: "50"
+        - name: ONDEMAND_CLONE_LIMIT
+          value: "50"
+        - name: MAX_LIFETIME_UPPER_LIMIT
+          value: "336"
+        - name: VM_LIFETIME
+          value: '2'
+        - name: VM_LIFETIME_AUTH
+          value: '12'
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis
+              key: redis-password
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/vmpooler
+        - name: pools-config
+          mountPath: /etc/vmpooler/config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ .Values.configmapName }}
+            items:
+            - key: vmpooler.yaml
+              path: vmpooler.yaml
+        - name: pools-config
+          configMap:
+            name: vmpooler-pools
+            items:
+            - key: pools.yaml
+              path: pools.yaml
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

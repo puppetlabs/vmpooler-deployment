@@ -1,0 +1,162 @@
+{{- $fullName := include "vmpooler.fullname" . -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fullName }}-manager
+  labels:
+    app: {{ $fullName }}-manager
+    redis-client: "true"
+    {{- include "vmpooler.labels" . | nindent 4 }}
+    test: liveness
+  annotations:
+    configmap.reloader.stakater.com/reload: "{{ .Values.configmapName }},vmpooler-pools"
+    secret.reloader.stakater.com/reload: 'redis'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ $fullName }}-manager
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ $fullName }}-manager
+  {{- with .Values.manager.annotations }}
+      annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "vmpooler.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+      - name: {{ $fullName }}-manager
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 12 }}
+        image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.service.port }}
+        resources:
+          {{- toYaml .Values.manager.resources | nindent 12 }}
+        args:
+          - 'manager'
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - ps -p 1 > /dev/null
+          initialDelaySeconds: 40
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - ps -p 1 > /dev/null
+          initialDelaySeconds: 40
+          periodSeconds: 10
+        env:
+        - name: JRUBY_OPTS
+          value: '-J-XX:+UseG1GC -Xinvokedynamic.yield=false'
+        - name: TASK_LIMIT
+          value: '30'
+        - name: MIGRATION_LIMIT
+          value: '10'
+        - name: VM_LIFETIME
+          value: '2'
+        - name: VM_LIFETIME_AUTH
+          value: '12'
+        - name: VM_CHECKTIME
+          value: '1'
+        - name: CREATE_FOLDERS
+          value: 'true'
+        - name: CREATE_TEMPLATE_DELTA_DISKS
+          value: 'true'
+        - name: CREATE_LINKED_CLONES
+          value: 'true'
+        - name: MAX_TRIES
+          value: '3'
+        - name: RETRY_FACTOR
+          value: '20'
+        - name: PURGE_UNCONFIGURED_FOLDERS
+          value: 'true'
+        - name: DOMAIN
+          value: {{ .Values.sut_domain }}
+        - name: VMPOOLER_CONFIG_FILE
+          value: /etc/vmpooler/vmpooler.yaml
+        - name: VMPOOLER_TRACING_ENABLED
+          value: '{{ .Values.tracing.enabled }}'
+        - name: VMPOOLER_TRACING_JAEGER_HOST
+          value: '{{ .Values.tracing.jaegerHost }}'
+        - name: LOGFILE
+          value: /dev/stdout
+        - name: EXTRA_CONFIG
+          value: '{{ .Values.additionalConfigFiles }}'
+        - name: TIMEOUT
+          value: '15'
+        - name: READY_TTL
+          value: "480"
+        - name: REDIS_SERVER
+          value: 'redis-master'
+        - name: REDIS_CONNECTION_POOL_SIZE
+          value: "200"
+        - name: REDIS_CONNECTION_POOL_TIMEOUT
+          value: "40"
+        - name: ONDEMAND_REQUEST_TTL
+          value: "50"
+        - name: ONDEMAND_CLONE_LIMIT
+          value: "50"
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis
+              key: redis-password
+        volumeMounts:
+        - name: base-config
+          mountPath: /etc/vmpooler
+        - name: pools-config
+          mountPath: /etc/vmpooler/config
+      volumes:
+        - name: base-config
+          configMap:
+            name: {{ .Values.configmapName }}
+            items:
+            - key: vmpooler.yaml
+              path: vmpooler.yaml
+        - name: pools-config
+          configMap:
+            name: {{ .Values.poolsConfigMapName }}
+            items:
+            - key: pools.yaml
+              path: pools.yaml
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
