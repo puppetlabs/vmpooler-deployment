@@ -5,3 +5,7 @@ This repo contains Dockerfiles and a Helm chart that can be used to deploy [VMPo
 ## Status
 
 This repo is a work in progress. It mostly works but many bits need adjusting here and there as they were compiled from other locations. More details will be added soon.
+
+## Helm Repository
+
+The `docs/` folder in this repository represents a Helm repo served via GitHub Pages at https://puppetlabs.github.io/vmpooler-deployment/
