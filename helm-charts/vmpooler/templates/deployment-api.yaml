@@ -72,7 +72,7 @@ spec:
         - name: VMPOOLER_TRACING_JAEGER_HOST
           value: '{{ .Values.tracing.jaegerHost }}'
         - name: EXTRA_CONFIG
-          value: '/etc/vmpooler/config/pools.yaml'
+          value: '{{ .Values.additionalConfigFiles }}'
         - name: REDIS_SERVER
           value: 'redis-master'
         - name: ONDEMAND_REQUEST_TTL
@@ -104,7 +104,7 @@ spec:
               path: vmpooler.yaml
         - name: pools-config
           configMap:
-            name: vmpooler-pools
+            name: {{ .Values.poolsConfigMapName }}
             items:
             - key: pools.yaml
               path: pools.yaml
