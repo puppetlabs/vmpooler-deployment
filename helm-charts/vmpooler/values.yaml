@@ -126,8 +126,12 @@ redis:
         cpu: 1000m
         memory: 2048Mi
     livenessProbe:
+      initialDelaySeconds: 40
+      periodSeconds: 10
       failureThreshold: 10
     readinessProbe:
+      initialDelaySeconds: 40
+      periodSeconds: 10
       failureThreshold: 10
   metrics:
     enabled: true
