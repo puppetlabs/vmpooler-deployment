@@ -9,6 +9,9 @@ services:
       - type: bind
         source: ${PWD}/vmpooler.yaml
         target: /etc/vmpooler/vmpooler.yaml
+      - type: bind
+        source: /Users/samuel/workspace/vmpooler-provider-gce/dio-samuel-dev-a3ce06371a55.json
+        target: /etc/vmpooler/dio-samuel-dev-a3ce06371a55.json
     ports:
       - "8080:4567"
     networks:
@@ -21,6 +24,7 @@ services:
       - JRUBY_OPTS=-Xinvokedynamic.yield=false
       - VMPOOLER_TRACING_ENABLED=true
       - VMPOOLER_TRACING_JAEGER_HOST=http://jaeger-aio:14268/api/traces
+      - GOOGLE_APPLICATION_CREDENTIALS=/etc/vmpooler/dio-samuel-dev-a3ce06371a55.json
     image: vmpooler-local
     command: api
     depends_on:
@@ -33,6 +37,9 @@ services:
       - type: bind
         source: ${PWD}/vmpooler.yaml
         target: /etc/vmpooler/vmpooler.yaml
+      - type: bind
+        source: /Users/samuel/workspace/vmpooler-provider-gce/dio-samuel-dev-a3ce06371a55.json
+        target: /etc/vmpooler/dio-samuel-dev-a3ce06371a55.json
     ports:
       - "8081:4567"
     networks:
@@ -45,6 +52,7 @@ services:
       - JRUBY_OPTS=-Xinvokedynamic.yield=false
       - VMPOOLER_TRACING_ENABLED=true
       - VMPOOLER_TRACING_JAEGER_HOST=http://jaeger-aio:14268/api/traces
+      - GOOGLE_APPLICATION_CREDENTIALS=/etc/vmpooler/dio-samuel-dev-a3ce06371a55.json
     image: vmpooler-local
     command: manager
     depends_on:
