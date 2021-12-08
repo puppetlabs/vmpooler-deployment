@@ -1,13 +1,28 @@
 version: 2
 updates:
+# /docker/dev folder
+- package-ecosystem: docker
+  directory: "/docker/dev/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+# /docker/prod-all-providers folder
 - package-ecosystem: bundler
-  directory: "/docker/test-all-providers/"
+  directory: "/docker/prod-all-providers/"
   schedule:
     interval: daily
     time: "13:00"
   open-pull-requests-limit: 10
 - package-ecosystem: docker
-  directory: "/docker/dev/"
+  directory: "/docker/prod-all-providers/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+# /docker/test-all-providers folder
+- package-ecosystem: bundler
+  directory: "/docker/test-all-providers/"
   schedule:
     interval: daily
     time: "13:00"
