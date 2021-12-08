@@ -13,6 +13,7 @@ FROM jruby:9.2-jdk
 ENV RACK_ENV=production
 
 RUN apt-get update -qq && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends make && \
     apt-get clean autoclean && \
     apt-get autoremove -y && \

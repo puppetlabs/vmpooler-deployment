@@ -1,0 +1,39 @@
+---
+name: Container with all prod providers
+on: 
+  workflow_dispatch:
+    inputs:
+     tag:
+      description: 'Tag in semver format'
+      required: true
+
+jobs:
+  container_prod_all_providers:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building and tagging $GITHUB_REPOSITORY:${{ github.event.inputs.tag }}"
+      - uses: actions/checkout@v2 # Checking out the repo
+      - name: Build and Publish Docker image
+        uses: VaultVulp/gp-docker-action@1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: vmpooler
+          build-context: ./docker/prod-all-providers
+          image-tag: ${{ github.event.inputs.tag }}-prod-all-providers
+      - name: Generate Release Body
+        env:
+          RELEASE_BODY_FILE: "${{ github.event.inputs.tag }}-prod-all-providers-release-body.md"
+        run: |
+          echo "Source image: $(grep ^FROM ./docker/prod-all-providers/Dockerfile |cut -d ' ' -f2) + OS updates\n" > ${RELEASE_BODY_FILE}
+          echo "Gems:\n" >> ${RELEASE_BODY_FILE}
+          echo "$(grep -e 'vmpooler ([0-9]' docker/prod-all-providers/Gemfile.lock | xargs -L1 echo -)" >> ${RELEASE_BODY_FILE}
+          echo "$(grep -e 'vmpooler-provider-.* ([0-9]' docker/prod-all-providers/Gemfile.lock | xargs -L1 echo -)" >> ${RELEASE_BODY_FILE}
+      - name: Tag Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ github.event.inputs.tag }}-prod-all-providers
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: false
+          prerelease: false
+          bodyFile: ${{ github.event.inputs.tag }}-prod-all-providers-release-body.md
+          generateReleaseNotes: true
