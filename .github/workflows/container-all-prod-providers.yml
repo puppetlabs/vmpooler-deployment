@@ -18,7 +18,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           image-name: vmpooler
-          build-context: ./docker/prod-all-providers
+          build-context: ./docker/prod-all-providers/
+          dockerfile: ./docker/prod-all-providers/Dockerfile
           image-tag: ${{ github.event.inputs.tag }}-prod-all-providers
       - name: Generate Release Body
         env:
