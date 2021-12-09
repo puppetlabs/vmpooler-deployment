@@ -10,6 +10,7 @@
 
 FROM jruby:9.2-jdk
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV RACK_ENV=production
 
 RUN apt-get update -qq && \
