@@ -11,7 +11,6 @@ jobs:
   container_prod_all_providers:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Building and tagging $GITHUB_REPOSITORY:${{ github.event.inputs.tag }}"
       - uses: actions/checkout@v2 # Checking out the repo
       - name: Build and Publish Docker image
         uses: VaultVulp/gp-docker-action@1.2.0
@@ -25,8 +24,16 @@ jobs:
         env:
           RELEASE_BODY_FILE: "${{ github.event.inputs.tag }}-prod-all-providers-release-body.md"
         run: |
-          echo "Source image: $(grep ^FROM ./docker/prod-all-providers/Dockerfile |cut -d ' ' -f2) + OS updates\n" > ${RELEASE_BODY_FILE}
-          echo "Gems:\n" >> ${RELEASE_BODY_FILE}
+          echo "## Components" > ${RELEASE_BODY_FILE}
+          echo "" >> ${RELEASE_BODY_FILE}
+          echo "This release includes the following:" >> ${RELEASE_BODY_FILE}
+          echo "" >> ${RELEASE_BODY_FILE}
+          echo "### Source image" >> ${RELEASE_BODY_FILE}
+          echo "" >> ${RELEASE_BODY_FILE}
+          echo "- $(grep ^FROM ./docker/prod-all-providers/Dockerfile |cut -d ' ' -f2) + OS updates" >> ${RELEASE_BODY_FILE}
+          echo "" >> ${RELEASE_BODY_FILE}
+          echo "### Gems" >> ${RELEASE_BODY_FILE}
+          echo "" >> ${RELEASE_BODY_FILE}
           echo "$(grep -e 'vmpooler ([0-9]' docker/prod-all-providers/Gemfile.lock | xargs -L1 echo -)" >> ${RELEASE_BODY_FILE}
           echo "$(grep -e 'vmpooler-provider-.* ([0-9]' docker/prod-all-providers/Gemfile.lock | xargs -L1 echo -)" >> ${RELEASE_BODY_FILE}
       - name: Tag Release
