@@ -10,10 +10,11 @@
 
 FROM jruby:9.2-jdk
 
-ENV RACK_ENV=production
+LABEL org.opencontainers.image.description "VMPooler and known providers pulled directly from Git"
 
-ENV LOGFILE=/dev/stdout \
-      RACK_ENV=production
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LOGFILE=/dev/stdout
+ENV RACK_ENV=production
 
 RUN apt-get update -qq && \
     apt-get upgrade -y && \

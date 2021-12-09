@@ -3,8 +3,8 @@
 vmpoolerInstance: 'test-instance'
 
 image:
-  repository: vmpooler
-  pullPolicy: Always
+  repository: ghcr.io/puppetlabs/vmpooler-deployment/vmpooler
+  pullPolicy: IfNotPresent
 
 configmapName: 'vmpooler-baseconfig'
 sut_domain: 'vmpooler.example.com'
