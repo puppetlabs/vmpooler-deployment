@@ -88,7 +88,7 @@ GEM
     statsd-ruby (1.5.0)
     thrift (0.15.0)
     tilt (2.0.10)
-    vmpooler (2.0.0)
+    vmpooler (2.1.0)
       concurrent-ruby (~> 1.1)
       connection_pool (~> 2.2)
       net-ldap (~> 0.16)
@@ -108,15 +108,15 @@ GEM
       sinatra (~> 2.0)
       spicy-proton (~> 2.1)
       statsd-ruby (~> 1.4)
-    vmpooler-provider-vsphere (1.4.0)
+    vmpooler-provider-vsphere (1.5.0)
       rbvmomi (>= 2.1, < 4.0)
 
 PLATFORMS
   universal-java-1.8
 
 DEPENDENCIES
-  vmpooler (~> 2.0)
-  vmpooler-provider-vsphere (~> 1.4)
+  vmpooler (~> 2.1)
+  vmpooler-provider-vsphere (~> 1.5)
 
 BUNDLED WITH
    2.2.33

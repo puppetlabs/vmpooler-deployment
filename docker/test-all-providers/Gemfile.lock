@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler-provider-gce.git
-  revision: 2a0e9f5bdc45c5c9c656f3763df296a6ab2a522a
+  revision: f6ec318b2dafb1a69a4b3b1d926a3ad3cac4cf3f
   specs:
     vmpooler-provider-gce (0.1.0)
       google-apis-compute_v1 (~> 0.14)
@@ -8,16 +8,16 @@ GIT
 
 GIT
   remote: https://github.com/puppetlabs/vmpooler-provider-vsphere.git
-  revision: 4fa14cc94f2649188efc9f9555ec598b30213e69
+  revision: a9662622d5574a7f9f6e97ff4c8bc82786982266
   specs:
-    vmpooler-provider-vsphere (1.3.0)
+    vmpooler-provider-vsphere (1.5.0)
       rbvmomi (>= 2.1, < 4.0)
 
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 3c61050032615993285ba965100cd9461b9e8652
+  revision: 439dbc05ae3ac7c7e133d5b0af85382e7ce969d0
   specs:
-    vmpooler (2.0.0)
+    vmpooler (2.1.0)
       concurrent-ruby (~> 1.1)
       connection_pool (~> 2.2)
       net-ldap (~> 0.16)
@@ -67,7 +67,7 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-    google-apis-compute_v1 (0.21.0)
+    google-apis-compute_v1 (0.22.0)
       google-apis-core (>= 0.4, < 2.a)
     google-apis-core (0.4.1)
       addressable (~> 2.5, >= 2.5.1)
@@ -188,4 +188,4 @@ DEPENDENCIES
   vmpooler-provider-vsphere!
 
 BUNDLED WITH
-   2.2.32
+   2.2.33
