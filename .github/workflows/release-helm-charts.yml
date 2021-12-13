@@ -1,0 +1,60 @@
+---
+name: Release Helm charts
+on:
+  push:
+  # workflow_dispatch:
+  #   inputs:
+  #    tag:
+  #     description: 'Tag in semver format'
+  #     required: true
+
+jobs:
+  container_prod_all_providers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # Checking out the repo
+      - uses: azure/setup-helm@v1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.1.0
+      # - name: Run chart-testing (list-changed)
+      #   id: list-changed
+      #   run: |
+      #     changed=$(ct list-changed)
+      #     if [[ -n "$changed" ]]; then
+      #       echo "::set-output name=changed::true"
+      #     fi
+      - name: Run chart-testing (lint)
+        run: ct lint --chart-dirs helm-charts --all --validate-maintainers=false --chart-repos bitnami=https://charts.bitnami.com/bitnami
+      # - name: Package charts
+      #   run: |
+      #     set -e
+      #     cd docs/
+      #     helm package ../helm-charts/*
+      # - name: Generate Release Body
+      #   env:
+      #     RELEASE_BODY_FILE: "${{ github.event.inputs.tag }}-prod-all-providers-release-body.md"
+      #   run: |
+      #     echo "## Components" > ${RELEASE_BODY_FILE}
+      #     echo "" >> ${RELEASE_BODY_FILE}
+      #     echo "This release includes the following:" >> ${RELEASE_BODY_FILE}
+      #     echo "" >> ${RELEASE_BODY_FILE}
+      #     echo "### Source image" >> ${RELEASE_BODY_FILE}
+      #     echo "" >> ${RELEASE_BODY_FILE}
+      #     echo "- $(grep ^FROM ./docker/prod-all-providers/Dockerfile |cut -d ' ' -f2) + OS updates" >> ${RELEASE_BODY_FILE}
+      #     echo "" >> ${RELEASE_BODY_FILE}
+      #     echo "### Gems" >> ${RELEASE_BODY_FILE}
+      #     echo "" >> ${RELEASE_BODY_FILE}
+      #     echo "$(grep -e 'vmpooler ([0-9]' docker/prod-all-providers/Gemfile.lock | xargs -L1 echo -)" >> ${RELEASE_BODY_FILE}
+      #     echo "$(grep -e 'vmpooler-provider-.* ([0-9]' docker/prod-all-providers/Gemfile.lock | xargs -L1 echo -)" >> ${RELEASE_BODY_FILE}
+      # - name: Tag Release
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     tag: ${{ github.event.inputs.tag }}-prod-all-providers
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     draft: false
+      #     prerelease: false
+      #     bodyFile: ${{ github.event.inputs.tag }}-prod-all-providers-release-body.md
+      #     generateReleaseNotes: true
