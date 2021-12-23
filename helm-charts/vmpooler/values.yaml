@@ -10,6 +10,9 @@ configmapName: 'vmpooler-baseconfig'
 sut_domain: 'vmpooler.example.com'
 usage_stats: true
 
+gce:
+  keyfile: '/vault/secrets/gce-keyfile.json' #.json private key, set in ENV var
+
 tracing:
   enabled: 'false'
   # jaegerHost: 'http://otel-collector.otel-collector.svc:14268/api/traces'
