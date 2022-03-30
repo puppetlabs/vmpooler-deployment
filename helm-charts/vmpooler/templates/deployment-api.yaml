@@ -11,9 +11,6 @@ metadata:
   annotations:
     configmap.reloader.stakater.com/reload: "{{ .Values.configmapName }},vmpooler-pools"
     secret.reloader.stakater.com/reload: 'redis'
-    {{- with .Values.api.annotations }}
-    {{- toYaml . | nindent 8 }}
-    {{- end }}
 spec:
   replicas: {{ .Values.api.replicaCount }}
   selector:
@@ -23,6 +20,10 @@ spec:
     metadata:
       labels:
         app: {{ $fullName }}-api
+  {{- with .Values.api.annotations }}
+      annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
