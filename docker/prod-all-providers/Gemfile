@@ -2,4 +2,4 @@ source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
 gem 'vmpooler',                    '~> 2.3'
 gem 'vmpooler-provider-vsphere',   '~> 1.5'
-gem 'vmpooler-provider-gce',       '~> 0.1'
+gem 'vmpooler-provider-gce',       '~> 0.2'
