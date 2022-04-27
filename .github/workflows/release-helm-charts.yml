@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-      description: 'Tag in semver format'
-      required: true
+        description: 'Tag in semver format'
+        required: true
+        type: string
 
 jobs:
   container_prod_all_providers:
