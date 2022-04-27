@@ -1,12 +1,11 @@
 ---
 name: Release Helm charts
 on:
-  push:
-    workflow_dispatch:
-      inputs:
-        tag:
-        description: 'Tag in semver format'
-        required: true
+  workflow_dispatch:
+    inputs:
+      tag:
+      description: 'Tag in semver format'
+      required: true
 
 jobs:
   container_prod_all_providers:
