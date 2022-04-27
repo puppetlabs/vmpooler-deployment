@@ -26,6 +26,7 @@ cd docs/
 helm package ../helm-charts/*
 helm repo index --url https://puppetlabs.github.io/vmpooler-deployment/ .
 git add .
+cd ..
 git commit -a
 ```
 

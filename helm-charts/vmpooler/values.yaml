@@ -164,7 +164,8 @@ pools:
     snapshot_mainMem_iowait: '5'
     network: 'vmpooler1'
   - name: 'centos-6-x86_64-pixa4'
-    alias: [ 'centos-6-x86_64' ]
+    alias:
+      - 'centos-6-x86_64'
     template: 'templates/cluster2/centos-6.8-x86_64-0.0.2-8gb'
     folder: test-instance/cluster2/centos-6-x86_64'
     datastore: 'vmpooler_cluster2'
