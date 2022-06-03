@@ -10,8 +10,9 @@ configmapName: 'vmpooler-baseconfig'
 sut_domain: 'vmpooler.example.com'
 usage_stats: true
 
+# .json private key, set in ENV var
 gce:
-  keyfile: '/vault/secrets/gce-keyfile.json' #.json private key, set in ENV var
+  keyfile: '/vault/secrets/gce-keyfile.json'
 
 tracing:
   enabled: 'false'
@@ -112,15 +113,16 @@ affinity: {}
 # For a full list of parameters see: https://github.com/bitnami/charts/tree/master/bitnami/redis/
 redis:
   fullnameOverride: redis
-  cluster:
-    enabled: false
+  architecture: standalone
   networkPolicy:
     enabled: true
-  securityContext:
-    enabled: true
-    fsGroup: 1001
-    runAsUser: 1001
   master:
+    podSecurityContext:
+      enabled: true
+      fsGroup: 1001
+    containerSecurityContext:
+      enabled: true
+      runAsUser: 1001
     resources:
       requests:
         cpu: 1000m
