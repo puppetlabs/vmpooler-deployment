@@ -44,6 +44,10 @@ auth:
 
 additionalConfigFiles: '/etc/vmpooler/config/pools.yaml'
 
+# This overrides the deployment's spec.container.command (defaults to the Dockerfile entrypoint)
+# overrideCmd:
+#   - 'source foo && docker-entrypoint.sh'
+
 api:
   replicaCount: 1
   resources:

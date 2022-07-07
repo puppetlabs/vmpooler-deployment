@@ -1,8 +1,16 @@
 GIT
-  remote: https://github.com/puppetlabs/vmpooler-provider-gce.git
-  revision: c6533af9eda0f80c2aeb5bdba0b870256e44b523
+  remote: https://github.com/puppetlabs/vmpooler-provider-ec2.git
+  revision: dcf12369483a3d904b20fae7374bdd4b89295f92
   specs:
-    vmpooler-provider-gce (0.2.0)
+    vmpooler-provider-ec2 (0.0.1)
+      aws-sdk-ec2 (~> 1)
+      net-ssh (>= 6.2, < 7.1)
+
+GIT
+  remote: https://github.com/puppetlabs/vmpooler-provider-gce.git
+  revision: 46b9c5aef06184f8a2bd0be6086ae2256b19020a
+  specs:
+    vmpooler-provider-gce (0.3.0)
       google-apis-compute_v1 (~> 0.14)
       google-cloud-dns (~> 0.35.1)
       googleauth (>= 0.16.2, < 1.2.0)
@@ -16,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: c3a6fd25278092c2c1763e761dbcc68cfbc91390
+  revision: 35102d57cd57493034407057d2c3d328963d4db6
   specs:
     vmpooler (2.3.0)
       concurrent-ruby (~> 1.1)
@@ -46,6 +54,18 @@ GEM
   specs:
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.603.0)
+    aws-sdk-core (3.131.2)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.525.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-ec2 (1.320.0)
+      aws-sdk-core (~> 3, >= 3.127.0)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.5.0)
+      aws-eventstream (~> 1, >= 1.0.2)
     bindata (2.4.10)
     builder (3.2.4)
     concurrent-ruby (1.1.10)
@@ -68,16 +88,16 @@ GEM
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.3)
-      multipart-post (>= 1.2, < 3)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
-    google-apis-compute_v1 (0.32.0)
-      google-apis-core (>= 0.4, < 2.a)
-    google-apis-core (0.4.2)
+    google-apis-compute_v1 (0.41.0)
+      google-apis-core (>= 0.7, < 2.a)
+    google-apis-core (0.7.0)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (>= 0.16.2, < 2.a)
       httpclient (>= 2.8.1, < 3.a)
@@ -86,8 +106,8 @@ GEM
       retriable (>= 2.0, < 4.a)
       rexml
       webrick
-    google-apis-dns_v1 (0.19.0)
-      google-apis-core (>= 0.4, < 2.a)
+    google-apis-dns_v1 (0.23.0)
+      google-apis-core (>= 0.7, < 2.a)
     google-cloud-core (1.6.0)
       google-cloud-env (~> 1.0)
       google-cloud-errors (~> 1.0)
@@ -99,7 +119,7 @@ GEM
     google-cloud-env (1.6.0)
       faraday (>= 0.17.3, < 3.0)
     google-cloud-errors (1.2.0)
-    googleauth (1.1.2)
+    googleauth (1.1.3)
       faraday (>= 0.17.3, < 3.a)
       jwt (>= 1.4, < 3.0)
       memoist (~> 0.16)
@@ -107,23 +127,25 @@ GEM
       os (>= 0.9, < 2.0)
       signet (>= 0.16, < 2.a)
     httpclient (2.8.3)
-    json (2.6.1)
-    json (2.6.1-java)
-    jwt (2.3.0)
+    jmespath (1.6.1)
+    json (2.6.2)
+    json (2.6.2-java)
+    jwt (2.4.1)
     memoist (0.16.2)
     mini_mime (1.1.2)
     multi_json (1.15.0)
-    multipart-post (2.1.1)
+    multipart-post (2.2.3)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    net-ldap (0.17.0)
+    net-ldap (0.17.1)
+    net-ssh (6.3.0.beta1)
     nio4r (2.5.8)
     nio4r (2.5.8-java)
     nokogiri (1.12.5-java)
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
-    opentelemetry-api (1.0.1)
+    opentelemetry-api (1.0.2)
     opentelemetry-common (0.19.3)
       opentelemetry-api (~> 1.0)
     opentelemetry-exporter-jaeger (0.20.1)
@@ -169,7 +191,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     racc (1.6.0-java)
-    rack (2.2.3)
+    rack (2.2.4)
     rack-protection (2.2.0)
       rack
     rake (13.0.6)
@@ -178,8 +200,8 @@ GEM
       json (~> 2.3)
       nokogiri (~> 1.10)
       optimist (~> 3.0)
-    redis (4.6.0)
-    representable (3.1.1)
+    redis (4.7.1)
+    representable (3.2.0)
       declarative (< 0.1.0)
       trailblazer-option (>= 0.1.1, < 0.2.0)
       uber (< 0.2.0)
@@ -212,8 +234,9 @@ PLATFORMS
 
 DEPENDENCIES
   vmpooler!
+  vmpooler-provider-ec2!
   vmpooler-provider-gce!
   vmpooler-provider-vsphere!
 
 BUNDLED WITH
-   2.3.11
+   2.3.17
