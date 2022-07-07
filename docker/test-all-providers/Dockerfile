@@ -23,14 +23,16 @@ RUN apt-get update -qq && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
+RUN gem install bundler && \
+    gem update --system 3.2.3
+
 COPY ./docker-entrypoint.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 COPY ./Gemfile* ./
 
-RUN gem install bundler && \
-    bundle config set --local jobs 3 && \
+RUN bundle config set --local jobs 3 && \
     bundle install
 
 ENTRYPOINT ["docker-entrypoint.sh"]
