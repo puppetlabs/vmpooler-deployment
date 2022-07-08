@@ -42,12 +42,6 @@ spec:
           - containerPort: {{ .Values.service.port }}
         resources:
           {{- toYaml .Values.api.resources | nindent 12 }}
-        {{- if .Values.overrideCmd -}}
-        {{- with .Values.overrideCmd }}
-        command:
-          {{- toYaml . | nindent 10 }}
-        {{- end }}
-        {{- end }}
         args:
           - 'api'
         livenessProbe:

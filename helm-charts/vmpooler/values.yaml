@@ -14,6 +14,9 @@ usage_stats: true
 gce:
   keyfile: '/vault/secrets/gce-keyfile.json'
 
+ec2:
+  keyfile: '/vault/secrets/ec2-keyfile.rsa'
+
 tracing:
   enabled: 'false'
   # jaegerHost: 'http://otel-collector.otel-collector.svc:14268/api/traces'
@@ -43,10 +46,6 @@ auth:
   #     - 'cn'
 
 additionalConfigFiles: '/etc/vmpooler/config/pools.yaml'
-
-# This overrides the deployment's spec.container.command (defaults to the Dockerfile entrypoint)
-# overrideCmd:
-#   - 'source foo && docker-entrypoint.sh'
 
 api:
   replicaCount: 1
