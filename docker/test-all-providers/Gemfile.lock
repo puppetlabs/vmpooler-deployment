@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler-provider-ec2.git
-  revision: dcf12369483a3d904b20fae7374bdd4b89295f92
+  revision: 7f539321523d47ffa6c001f4f300f7b21eb9a4d9
   specs:
     vmpooler-provider-ec2 (0.0.1)
       aws-sdk-ec2 (~> 1)
-      net-ssh (>= 6.2, < 7.1)
+      net-ssh (~> 6.2.0.rc2)
 
 GIT
   remote: https://github.com/puppetlabs/vmpooler-provider-gce.git
@@ -17,25 +17,24 @@ GIT
 
 GIT
   remote: https://github.com/puppetlabs/vmpooler-provider-vsphere.git
-  revision: a9662622d5574a7f9f6e97ff4c8bc82786982266
+  revision: 82e35dfb54705f9a495b64498779da6cfb322f16
   specs:
-    vmpooler-provider-vsphere (1.5.0)
+    vmpooler-provider-vsphere (1.6.0)
       rbvmomi (>= 2.1, < 4.0)
 
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 35102d57cd57493034407057d2c3d328963d4db6
+  revision: b9a1bb74017c417526cde6586b8dd333435ff74c
   specs:
-    vmpooler (2.3.0)
+    vmpooler (2.4.0)
       concurrent-ruby (~> 1.1)
       connection_pool (~> 2.2)
       deep_merge (~> 1.2)
       net-ldap (~> 0.16)
-      nokogiri (~> 1.10)
       opentelemetry-exporter-jaeger (= 0.20.1)
       opentelemetry-instrumentation-concurrent_ruby (= 0.19.2)
-      opentelemetry-instrumentation-http_client (= 0.19.3)
-      opentelemetry-instrumentation-redis (= 0.21.2)
+      opentelemetry-instrumentation-http_client (= 0.19.4)
+      opentelemetry-instrumentation-redis (= 0.21.3)
       opentelemetry-instrumentation-sinatra (= 0.19.3)
       opentelemetry-resource_detectors (= 0.19.1)
       opentelemetry-sdk (~> 1.0, >= 1.0.2)
@@ -55,16 +54,16 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     aws-eventstream (1.2.0)
-    aws-partitions (1.603.0)
-    aws-sdk-core (3.131.2)
+    aws-partitions (1.610.0)
+    aws-sdk-core (3.131.3)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1, >= 1.6.1)
-    aws-sdk-ec2 (1.320.0)
+    aws-sdk-ec2 (1.324.0)
       aws-sdk-core (~> 3, >= 3.127.0)
       aws-sigv4 (~> 1.1)
-    aws-sigv4 (1.5.0)
+    aws-sigv4 (1.5.1)
       aws-eventstream (~> 1, >= 1.0.2)
     bindata (2.4.10)
     builder (3.2.4)
@@ -72,30 +71,11 @@ GEM
     connection_pool (2.2.5)
     declarative (0.0.20)
     deep_merge (1.2.2)
-    faraday (1.10.0)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0)
-      faraday-multipart (~> 1.0)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.0)
-      faraday-patron (~> 1.0)
-      faraday-rack (~> 1.0)
-      faraday-retry (~> 1.0)
+    faraday (2.3.0)
+      faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.4)
-      multipart-post (~> 2)
-    faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday-rack (1.0.0)
-    faraday-retry (1.0.3)
-    google-apis-compute_v1 (0.41.0)
+    faraday-net_http (2.0.3)
+    google-apis-compute_v1 (0.44.0)
       google-apis-core (>= 0.7, < 2.a)
     google-apis-core (0.7.0)
       addressable (~> 2.5, >= 2.5.1)
@@ -128,25 +108,20 @@ GEM
       signet (>= 0.16, < 2.a)
     httpclient (2.8.3)
     jmespath (1.6.1)
-    json (2.6.2)
     json (2.6.2-java)
     jwt (2.4.1)
     memoist (0.16.2)
     mini_mime (1.1.2)
     multi_json (1.15.0)
-    multipart-post (2.2.3)
-    mustermann (1.1.1)
+    mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
     net-ldap (0.17.1)
-    net-ssh (6.3.0.beta1)
-    nio4r (2.5.8)
+    net-ssh (6.2.0.rc2)
     nio4r (2.5.8-java)
-    nokogiri (1.12.5-java)
-      racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
+    nokogiri (1.13.8-java)
       racc (~> 1.4)
     opentelemetry-api (1.0.2)
-    opentelemetry-common (0.19.3)
+    opentelemetry-common (0.19.6)
       opentelemetry-api (~> 1.0)
     opentelemetry-exporter-jaeger (0.20.1)
       opentelemetry-api (~> 1.0)
@@ -158,11 +133,11 @@ GEM
     opentelemetry-instrumentation-concurrent_ruby (0.19.2)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.19.0)
-    opentelemetry-instrumentation-http_client (0.19.3)
+    opentelemetry-instrumentation-http_client (0.19.4)
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.19.3)
       opentelemetry-instrumentation-base (~> 0.19.0)
-    opentelemetry-instrumentation-redis (0.21.2)
+    opentelemetry-instrumentation-redis (0.21.3)
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.19.3)
       opentelemetry-instrumentation-base (~> 0.19.0)
@@ -170,13 +145,15 @@ GEM
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.19.3)
       opentelemetry-instrumentation-base (~> 0.19.0)
+    opentelemetry-registry (0.1.0)
+      opentelemetry-api (~> 1.0.1)
     opentelemetry-resource_detectors (0.19.1)
       google-cloud-env
       opentelemetry-sdk
-    opentelemetry-sdk (1.0.2)
+    opentelemetry-sdk (1.1.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.19.3)
-      opentelemetry-instrumentation-base (~> 0.19.0)
+      opentelemetry-registry (~> 0.1)
       opentelemetry-semantic_conventions
     opentelemetry-semantic_conventions (1.8.0)
       opentelemetry-api (~> 1.0)
@@ -185,14 +162,11 @@ GEM
     pickup (0.0.11)
     prometheus-client (2.1.0)
     public_suffix (4.0.7)
-    puma (5.6.4)
-      nio4r (~> 2.0)
     puma (5.6.4-java)
       nio4r (~> 2.0)
-    racc (1.6.0)
     racc (1.6.0-java)
     rack (2.2.4)
-    rack-protection (2.2.0)
+    rack-protection (2.2.2)
       rack
     rake (13.0.6)
     rbvmomi (3.0.0)
@@ -208,21 +182,21 @@ GEM
     retriable (3.1.2)
     rexml (3.2.5)
     ruby2_keywords (0.0.5)
-    signet (0.16.1)
+    signet (0.17.0)
       addressable (~> 2.8)
-      faraday (>= 0.17.5, < 3.0)
+      faraday (>= 0.17.5, < 3.a)
       jwt (>= 1.5, < 3.0)
       multi_json (~> 1.10)
-    sinatra (2.2.0)
-      mustermann (~> 1.0)
+    sinatra (2.2.2)
+      mustermann (~> 2.0)
       rack (~> 2.2)
-      rack-protection (= 2.2.0)
+      rack-protection (= 2.2.2)
       tilt (~> 2.0)
     spicy-proton (2.1.14)
       bindata (~> 2.3)
     statsd-ruby (1.5.0)
     thrift (0.16.0)
-    tilt (2.0.10)
+    tilt (2.0.11)
     trailblazer-option (0.1.2)
     uber (0.1.0)
     webrick (1.7.0)
@@ -230,7 +204,6 @@ GEM
 
 PLATFORMS
   universal-java-1.8
-  x86_64-linux
 
 DEPENDENCIES
   vmpooler!
@@ -239,4 +212,4 @@ DEPENDENCIES
   vmpooler-provider-vsphere!
 
 BUNDLED WITH
-   2.3.17
+   2.3.18

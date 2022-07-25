@@ -8,7 +8,7 @@
 # RUN:
 #   docker run -e VMPOOLER_CONFIG -p 80:4567 -it vmpooler
 
-FROM jruby:9.2-jdk
+FROM jruby:9.3.6-jdk
 
 LABEL org.opencontainers.image.description "VMPooler and known providers pulled directly from Git"
 
@@ -18,7 +18,7 @@ ENV RACK_ENV=production
 
 RUN apt-get update -qq && \
     apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends make && \
+    apt-get install -y --no-install-recommends make git && \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
