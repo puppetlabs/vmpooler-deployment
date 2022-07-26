@@ -67,6 +67,8 @@ spec:
           value: '{{ .Values.gce.keyfile }}'
         - name: AWS_KEY_FILE_LOCATION
           value: '{{ .Values.ec2.keyfile }}'
+        - name: ROOT_KEYS_SCRIPT
+          value: '{{ .Values.ec2.root_keys_script }}'
         - name: JRUBY_OPTS
           value: '-J-XX:+UseG1GC'
         - name: TASK_LIMIT

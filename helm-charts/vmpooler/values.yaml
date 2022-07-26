@@ -16,6 +16,7 @@ gce:
 
 ec2:
   keyfile: '/vault/secrets/ec2-keyfile.rsa'
+  root_keys_script: ''
 
 tracing:
   enabled: 'false'
