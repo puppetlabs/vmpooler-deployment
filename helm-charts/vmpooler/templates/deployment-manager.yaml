@@ -68,7 +68,7 @@ spec:
         - name: AWS_KEY_FILE_LOCATION
           value: '{{ .Values.ec2.keyfile }}'
         - name: JRUBY_OPTS
-          value: '-J-XX:+UseG1GC -Xinvokedynamic.yield=false'
+          value: '-J-XX:+UseG1GC'
         - name: TASK_LIMIT
           value: '30'
         - name: MIGRATION_LIMIT
