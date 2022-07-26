@@ -15,7 +15,7 @@ ENV RACK_ENV=production
 
 RUN apt-get update -qq && \
     apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends make git && \
+    apt-get install -y --no-install-recommends make git netbase && \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler-provider-ec2.git
-  revision: 7f539321523d47ffa6c001f4f300f7b21eb9a4d9
+  revision: 13d0de6dc035c46dcd099d0b5e9b02bc19e8fcdd
   specs:
     vmpooler-provider-ec2 (0.0.1)
       aws-sdk-ec2 (~> 1)
