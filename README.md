@@ -1,6 +1,6 @@
 # vmpooler-deployment
 
-This repo contains Dockerfiles and a Helm chart that can be used to deploy [VMPooler](https://github.com/puppetlabs/vmpooler). The DIO team at Puppet uses the code here as part of operating our VMPooler instances.
+This repo contains Dockerfiles and a Helm chart that can be used to deploy [VMPooler](https://github.com/puppetlabs/vmpooler). The Release Engineering team at Puppet uses the code here as part of operating our VMPooler instances.
 
 ## Docker Registry
 
