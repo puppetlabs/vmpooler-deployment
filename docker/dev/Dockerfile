@@ -8,7 +8,7 @@
 # RUN:
 #   docker run -e VMPOOLER_CONFIG -p 80:4567 -it vmpooler
 
-FROM jruby:9.3.6-jdk
+FROM jruby:9.3.9.0-jdk
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV RACK_ENV=production
