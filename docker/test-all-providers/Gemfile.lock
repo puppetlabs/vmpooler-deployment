@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: b9a1bb74017c417526cde6586b8dd333435ff74c
+  revision: 72c1ef31df7dce28da6a02bbbf99fd2eb74e9e79
   specs:
     vmpooler (2.4.0)
       concurrent-ruby (~> 1.1)
@@ -65,16 +65,16 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.5.1)
       aws-eventstream (~> 1, >= 1.0.2)
-    bindata (2.4.10)
+    bindata (2.4.14)
     builder (3.2.4)
     concurrent-ruby (1.1.10)
-    connection_pool (2.2.5)
+    connection_pool (2.3.0)
     declarative (0.0.20)
     deep_merge (1.2.2)
-    faraday (2.3.0)
-      faraday-net_http (~> 2.0)
+    faraday (2.7.1)
+      faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.0.3)
+    faraday-net_http (3.0.2)
     google-apis-compute_v1 (0.44.0)
       google-apis-core (>= 0.7, < 2.a)
     google-apis-core (0.7.0)
@@ -108,6 +108,7 @@ GEM
       signet (>= 0.16, < 2.a)
     httpclient (2.8.3)
     jmespath (1.6.1)
+    json (2.6.2)
     json (2.6.2-java)
     jwt (2.4.1)
     memoist (0.16.2)
@@ -117,10 +118,13 @@ GEM
       ruby2_keywords (~> 0.0.1)
     net-ldap (0.17.1)
     net-ssh (6.2.0.rc2)
+    nio4r (2.5.8)
     nio4r (2.5.8-java)
     nokogiri (1.13.8-java)
       racc (~> 1.4)
-    opentelemetry-api (1.0.2)
+    nokogiri (1.13.8-x86_64-linux)
+      racc (~> 1.4)
+    opentelemetry-api (1.1.0)
     opentelemetry-common (0.19.6)
       opentelemetry-api (~> 1.0)
     opentelemetry-exporter-jaeger (0.20.1)
@@ -145,15 +149,15 @@ GEM
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.19.3)
       opentelemetry-instrumentation-base (~> 0.19.0)
-    opentelemetry-registry (0.1.0)
-      opentelemetry-api (~> 1.0.1)
+    opentelemetry-registry (0.2.0)
+      opentelemetry-api (~> 1.1)
     opentelemetry-resource_detectors (0.19.1)
       google-cloud-env
       opentelemetry-sdk
-    opentelemetry-sdk (1.1.0)
-      opentelemetry-api (~> 1.0)
+    opentelemetry-sdk (1.2.0)
+      opentelemetry-api (~> 1.1)
       opentelemetry-common (~> 0.19.3)
-      opentelemetry-registry (~> 0.1)
+      opentelemetry-registry (~> 0.2)
       opentelemetry-semantic_conventions
     opentelemetry-semantic_conventions (1.8.0)
       opentelemetry-api (~> 1.0)
@@ -162,8 +166,11 @@ GEM
     pickup (0.0.11)
     prometheus-client (2.1.0)
     public_suffix (4.0.7)
-    puma (5.6.4-java)
+    puma (5.6.5)
       nio4r (~> 2.0)
+    puma (5.6.5-java)
+      nio4r (~> 2.0)
+    racc (1.6.0)
     racc (1.6.0-java)
     rack (2.2.4)
     rack-protection (2.2.2)
@@ -174,7 +181,7 @@ GEM
       json (~> 2.3)
       nokogiri (~> 1.10)
       optimist (~> 3.0)
-    redis (4.7.1)
+    redis (4.8.0)
     representable (3.2.0)
       declarative (< 0.1.0)
       trailblazer-option (>= 0.1.1, < 0.2.0)
@@ -192,10 +199,10 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.2.2)
       tilt (~> 2.0)
-    spicy-proton (2.1.14)
+    spicy-proton (2.1.15)
       bindata (~> 2.3)
     statsd-ruby (1.5.0)
-    thrift (0.16.0)
+    thrift (0.17.0)
     tilt (2.0.11)
     trailblazer-option (0.1.2)
     uber (0.1.0)
@@ -204,6 +211,7 @@ GEM
 
 PLATFORMS
   universal-java-1.8
+  x86_64-linux
 
 DEPENDENCIES
   vmpooler!
