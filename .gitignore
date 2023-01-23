@@ -2,3 +2,4 @@
 /docker/**/vmpooler.yaml
 .vagrant/
 .idea/
+helm-charts/vmpooler/charts/
