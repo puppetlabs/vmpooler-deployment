@@ -8,9 +8,9 @@
 # RUN:
 #   docker run -e VMPOOLER_CONFIG -p 80:4567 -it vmpooler
 
-FROM jruby:9.3.6-jdk
+FROM amd64/jruby:9.3.6-jdk
 
-LABEL org.opencontainers.image.description "VMPooler and known providers pulled directly from Git"
+LABEL org.opencontainers.image.description "VMPooler plus all known providers"
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LOGFILE=/dev/stdout
@@ -23,8 +23,7 @@ RUN apt-get update -qq && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN gem install bundler && \
-    gem update --system 3.2.3
+RUN gem install bundler
 
 COPY ./docker-entrypoint.sh /usr/local/bin/
 

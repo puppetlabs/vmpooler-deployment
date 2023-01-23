@@ -3,3 +3,6 @@
 .vagrant/
 .idea/
 helm-charts/vmpooler/charts/
+/docker/data/redis/**
+!docker/data/**/*.yaml
+!docker/data/**/.gitkeep

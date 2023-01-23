@@ -1,0 +1,37 @@
+---
+:providers:
+  :dummy:
+    filename: '/tmp/dummy-backing.yaml'
+
+:prometheus:
+  prefix: 'vmpooler-local'
+
+:redis:
+  server: 'redis-server'
+
+:auth:
+  provider: 'dummy'
+
+:config:
+  site_name: 'vmpooler'
+  logfile: '/var/log/vmpooler.log'
+  task_limit: 10
+  timeout: 15
+  vm_checktime: 1
+  vm_lifetime: 12
+  vm_lifetime_auth: 24
+  allowed_tags:
+    - 'created_by'
+    - 'project'
+  domain: 'example.com'
+  # domain: 'localhost' # Flip these out for local requests
+
+:pools:
+  - name: 'debian-10-x86_64'
+    template: 'Templates/debian-7-x86_64'
+    folder: 'Pooled VMs/debian-7-x86_64'
+    datastore: 'vmstorage'
+    size: 5
+    timeout: 15
+    ready_ttl: 1440
+    provider: dummy

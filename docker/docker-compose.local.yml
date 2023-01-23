@@ -1,0 +1,79 @@
+# For local development run with a dummy provider
+version: '3.8'
+services:
+  redis-server:
+    # This should match the major version used in the vmpooler helm chart
+    image: redis:6
+    command: "redis-server --requirepass vmpooler"
+    volumes:
+      - type: bind
+        source: ./data/redis
+        target: /data
+    ports:
+      - "6379:6379"
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOST=redis-server
+      - REDIS_PASSWORD=vmpooler
+      - HTTP_USER=admin
+      - HTTP_PASSWORD=admin
+    ports:
+      - 8080:8081
+    links:
+      - redis-server
+
+  jaeger-aio:
+    image: jaegertracing/all-in-one:1
+    ports:
+      - "14250:14250"
+      - "8081:16686"
+    user: '1001'
+    read_only: true
+    cap_drop:
+      - ALL
+
+  vmpooler-api:
+    # See image build instructions in README and Dockerfile.local
+    image: vmpooler-local
+    volumes:
+      - type: bind
+        source: ./data/vmpooler.yaml
+        target: /etc/vmpooler/vmpooler.yaml
+    ports:
+      - "8082:4567"
+    environment:
+      - VMPOOLER_DEBUG=true # for use of dummy auth
+      - VMPOOLER_CONFIG_FILE=/etc/vmpooler/vmpooler.yaml
+      - REDIS_SERVER=redis-server
+      - REDIS_PASSWORD=vmpooler
+      - LOGFILE=/dev/null
+      - VMPOOLER_TRACING_ENABLED=true
+      - VMPOOLER_TRACING_JAEGER_HOST=http://jaeger-aio:14268/api/traces
+    command: api
+    links:
+      - redis-server
+      - jaeger-aio
+
+  vmpooler-manager:
+    # See image build instructions in README and Dockerfile.local
+    image: vmpooler-local
+    volumes:
+      - type: bind
+        source: ./data/vmpooler.yaml
+        target: /etc/vmpooler/vmpooler.yaml
+    ports:
+      - "8083:4567"
+    environment:
+      - VMPOOLER_DEBUG=true # for use of dummy auth
+      - VMPOOLER_CONFIG_FILE=/etc/vmpooler/vmpooler.yaml
+      - REDIS_SERVER=redis-server
+      - REDIS_PASSWORD=vmpooler
+      - LOGFILE=/dev/null
+      - VMPOOLER_TRACING_ENABLED=true
+      - VMPOOLER_TRACING_JAEGER_HOST=http://jaeger-aio:14268/api/traces
+    command: manager
+    links:
+      - redis-server
+      - jaeger-aio
