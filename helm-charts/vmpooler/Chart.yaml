@@ -8,4 +8,4 @@ appVersion: 1.8.0-prod-all-providers
 dependencies:
   - name: redis
     repository: https://charts.bitnami.com/bitnami
-    version: 16.10.1
+    version: 16.13.2

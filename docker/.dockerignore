@@ -1,0 +1,6 @@
+# Exclude everything by default; explicitly include necessary files
+*
+!Gemfile
+!Gemfile.lock
+!Gemfile.local
+!docker-entrypoint.sh

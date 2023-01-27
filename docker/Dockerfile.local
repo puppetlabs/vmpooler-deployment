@@ -1,0 +1,43 @@
+# For local development of vmpooler core and provider gems instead of using a
+# git source ensure the following directory structure:
+# |-- vmpooler-projects
+# |  |--vmpooler-deployment
+# |  |--vmpooler-provider-ec2
+# |  |--vmpooler-provider-gce
+# |  |--vmpooler-provider-vsphere
+#
+# Then change directory into vmpooler-projects and build with: 
+
+
+FROM amd64/jruby:9.3.6-jdk
+
+LABEL org.opencontainers.image.description "VMPooler plus all known providers"
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LOGFILE=/dev/stdout
+ENV RACK_ENV=production
+
+RUN apt-get update -qq && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends make git netbase && \
+    apt-get clean autoclean && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY vmpooler /opt/vmpooler
+COPY vmpooler-provider-ec2 /opt/vmpooler-provider-ec2
+COPY vmpooler-provider-gce /opt/vmpooler-provider-gce
+COPY vmpooler-provider-vsphere /opt/vmpooler-provider-vsphere
+
+RUN gem install bundler
+
+COPY vmpooler-deployment/docker/docker-entrypoint.sh /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+COPY vmpooler-deployment/docker/Gemfile.local ./Gemfile
+
+RUN bundle config set --local jobs 3 && \
+    bundle install
+
+ENTRYPOINT ["docker-entrypoint.sh"]

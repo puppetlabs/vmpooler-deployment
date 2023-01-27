@@ -1,0 +1,161 @@
+name: Docker and Helm Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: read
+  pull-requests: read
+  packages: write
+
+jobs:
+  release:
+    name: Validate Docs, Tag, and Docker Push & Helm Push
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Get New Chart Version
+        id: nv
+        run: |
+          version=$(yq .version helm-charts/vmpooler/Chart.yaml)
+          appVersion=$(yq .appVersion helm-charts/vmpooler/Chart.yaml)
+          echo "version=$version" >> $GITHUB_OUTPUT
+          echo "appVersion=$appVersion" >> $GITHUB_OUTPUT
+          echo "Found version $version from helm-charts/vmpooler/Chart.yaml"
+          echo "Found appVersion $appVersion from helm-charts/vmpooler/Chart.yaml"
+
+      - name: Get Current Chart Version
+        uses: actions/github-script@v6
+        id: cv
+        with:
+          script: |
+            const { data: response } = await github.rest.repos.getLatestRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+            console.log(`The latest release is ${response.tag_name}`)
+            return response.tag_name
+          result-encoding: string
+
+      - name: Get Current Docker Tag
+        uses: actions/github-script@v6
+        id: dv
+        with:
+          script: |
+            // concat to build "vmpooler-deployment%2Fvmpooler"
+            const packageName = [context.repo.repo, 'vmpooler'].join('/');
+
+            const shouldRunDockerBuild = async () => {
+              let runDockerBuild = true;
+              // Iterate through all pages of list of package versions
+              for await (const response of github.paginate.iterator(
+                github.rest.packages.getAllPackageVersionsForPackageOwnedByOrg,
+                {
+                  package_type: 'container',
+                  package_name: packageName,
+                  org: context.repo.owner,
+                }
+              )) {
+                // Loop through each version, destructure down to the tags array and search for existing tag
+                for (const data of response.data) {
+                  const { metadata: { container: { tags }}} = data;
+                  console.log('List of docker tags:', tags);
+                  if (tags.includes("${{ steps.nv.outputs.appVersion }}")) {
+                    // Existing tag found, return false so that docker build does not run
+                    console.log('Found existing tag for', "${{ steps.nv.outputs.appVersion }}");
+                    runDockerBuild = false;
+                    break;
+                  };
+                };
+              };
+              return runDockerBuild;
+            };
+
+            const returnValue = await shouldRunDockerBuild();
+            console.log('return:', returnValue);
+            return returnValue;
+
+      - name: Generate Changelog
+        uses: docker://githubchangeloggenerator/github-changelog-generator:1.16.2
+        with:
+          args: >-
+            --future-release ${{ steps.nv.outputs.version }}
+        env:
+          CHANGELOG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate Changelog
+        run : |
+          set -e
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "Here is the current git status:"
+            git status
+            echo
+            echo "The following changes were detected:"
+            git --no-pager diff
+            echo "Uncommitted PRs found in the changelog. Please submit a release prep PR of changes after running 'docker run -it --rm -e CHANGELOG_GITHUB_TOKEN -v "\$\(pwd\)":/usr/local/src/your-app githubchangeloggenerator/github-changelog-generator:1.16.2 github_changelog_generator --future-release ${{ steps.nv.outputs.version }}'"
+            exit 1
+          fi
+
+      - name: Generate Release Notes
+        uses: docker://githubchangeloggenerator/github-changelog-generator:1.16.2
+        with:
+          args: >-
+            --since-tag ${{ steps.cv.outputs.result }}
+            --future-release ${{ steps.nv.outputs.version }}
+            --output release-notes.md
+        env:
+          CHANGELOG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Tag Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.nv.outputs.version }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bodyfile: release-notes.md
+          draft: false
+          prerelease: false
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker
+        if: ${{ steps.dv.outputs.result == 'true' }}
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ steps.nv.outputs.appVersion }}
+            ghcr.io/${{ github.repository }}:latest
+
+      - uses: azure/setup-helm@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Package Helm charts
+        run: |
+          set -e
+          cd docs/
+          helm package ../helm-charts/*
+          helm repo index --url https://puppetlabs.github.io/vmpooler-deployment/ .
+
+      - name: Git Commit and Push Helm Charts
+        run: |
+          git config user.name "puppetlabs-jenkins"
+          git config user.email "team-quality-engineering@puppet.com"
+          git --no-pager diff CHANGELOG.md
+          git add CHANGELOG.md
+          git commit -m "release helm-chart version ${{ steps.nv.outputs.version }}"
+          git push

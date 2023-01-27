@@ -1,0 +1,6 @@
+source ENV['GEM_SOURCE'] || 'https://rubygems.org'
+
+gem 'vmpooler', path: '/opt/vmpooler'
+gem 'vmpooler-provider-ec2', path: '/opt/vmpooler-provider-ec2'
+gem 'vmpooler-provider-gce', path: '/opt/vmpooler-provider-gce'
+gem 'vmpooler-provider-vsphere', path: '/opt/vmpooler-provider-vsphere'

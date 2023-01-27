@@ -1,6 +1,0 @@
-source ENV['GEM_SOURCE'] || 'https://rubygems.org'
-
-gem 'vmpooler',                    '~> 2.4'
-gem 'vmpooler-provider-ec2',       '~> 0.0.1'
-gem 'vmpooler-provider-gce',       '~> 0.4'
-gem 'vmpooler-provider-vsphere',   '~> 1.6'
