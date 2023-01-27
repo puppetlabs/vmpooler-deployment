@@ -1,0 +1,28 @@
+name: Helm Test
+
+on: pull_request
+
+jobs:
+  test:
+    name: Test Helm Chart
+    if: contains(github.event.pull_request.labels.*.name, 'documentation') != true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+          clean: true
+          fetch-depth: 0
+
+      - uses: azure/setup-helm@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2
+
+      - name: Run chart-testing (lint)
+        run: ct lint --chart-dirs helm-charts --all --validate-maintainers=false --chart-repos bitnami=https://charts.bitnami.com/bitnami
