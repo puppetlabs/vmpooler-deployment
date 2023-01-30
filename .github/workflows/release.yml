@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
 
       - name: Get New Chart Version
         id: nv
@@ -144,13 +142,15 @@ jobs:
           helm package ../helm-charts/*
           helm repo index --url https://puppetlabs.github.io/vmpooler-deployment/ .
 
-      - name: Git Commit and Push Helm Charts
-        run: |
-          git config user.name "puppetlabs-jenkins"
-          git config user.email "team-quality-engineering@puppet.com"
-          git add docs
-          git commit -m "release helm-chart version ${{ steps.nv.outputs.version }}"
-          git push
+      # Re-enable this and remove step 4 for manually building the chart if/when
+      # GitHub allows a way to bypass required status checks on a protected branch.
+      # - name: Git Commit and Push Helm Charts
+      #   run: |
+      #     git config user.name "puppetlabs-jenkins"
+      #     git config user.email "team-quality-engineering@puppet.com"
+      #     git add docs
+      #     git commit -m "release helm-chart version ${{ steps.nv.outputs.version }}"
+      #     git push
 
       - name: Tag Release
         uses: ncipollo/release-action@v1
