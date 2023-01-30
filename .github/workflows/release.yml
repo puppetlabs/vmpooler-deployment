@@ -110,15 +110,6 @@ jobs:
         env:
           CHANGELOG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Tag Release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.nv.outputs.version }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          bodyfile: release-notes.md
-          draft: false
-          prerelease: false
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -136,8 +127,8 @@ jobs:
           context: docker
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:${{ steps.nv.outputs.appVersion }}
-            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}/vmpooler:${{ steps.nv.outputs.appVersion }}
+            ghcr.io/${{ github.repository }}/vmpooler:latest
 
       - uses: azure/setup-helm@v3
 
@@ -148,6 +139,7 @@ jobs:
       - name: Package Helm charts
         run: |
           set -e
+          helm dependency update helm-charts/vmpooler
           cd docs/
           helm package ../helm-charts/*
           helm repo index --url https://puppetlabs.github.io/vmpooler-deployment/ .
@@ -159,3 +151,12 @@ jobs:
           git add docs
           git commit -m "release helm-chart version ${{ steps.nv.outputs.version }}"
           git push
+
+      - name: Tag Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.nv.outputs.version }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bodyfile: release-notes.md
+          draft: false
+          prerelease: false
