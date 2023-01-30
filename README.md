@@ -108,13 +108,10 @@ Artifactory Example:
 Create a GitHub tag and release, publish a new docker image, and helm chart by opening a release prep pull request and running the release action:
 
 1. Bump the "appVersion" key in `helm-charts/vmpooler/Chart.yaml` appropriately based on changes to `docker/Gemfile` and `docker/Gemfile.lock` in merged pull requests since the last release.
-   - This key pertains to the docker tag that will be pushed upon release.
 2. Bump the "version" key in `helm-charts/vmpooler/Chart.yaml` appropriately based on changes to the chart itself and increments of the "appVersion" in merged pull requests since the last release.
-   - This key pertains to the helm chart verison that will be pushed upon release.
 3. Run `./update-changelog` to update `CHANGELOG.md`.
-4. Run `./build-chart` to package the new chart and update the repo index.
-5. Commit and push changes to a new branch, then open a pull request against `main` and be sure to add the "maintenance" label.
-6. After the pull request is approved and merged, then navigate to Actions --> Docker and Helm Release --> run workflow --> Branch: main --> Run workflow.
+4. Commit and push changes to a new branch, then open a pull request against `main` and be sure to add the "maintenance" label.
+5. After the pull request is approved and merged, then navigate to Actions --> Docker and Helm Release --> run workflow --> Branch: main --> Run workflow.
    - This action will push a tagged docker image to the GitHub container registry and helm chart to GitHub pages.
 
 ## Contributing
