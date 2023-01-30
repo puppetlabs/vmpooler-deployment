@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0](https://github.com/puppetlabs/vmpooler-deployment/tree/2.0.0) (2023-01-30)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/1.19.0...2.0.0)
+
+**Implemented enhancements:**
+
+- Bump vmpooler-provider-vsphere [\#84](https://github.com/puppetlabs/vmpooler-deployment/pull/84) ([yachub](https://github.com/yachub))
+- Refactor docs and deployment [\#81](https://github.com/puppetlabs/vmpooler-deployment/pull/81) ([yachub](https://github.com/yachub))
+
+**Fixed bugs:**
+
+- .gitignore missed charts directory [\#39](https://github.com/puppetlabs/vmpooler-deployment/issues/39)
+
 ## [1.19.0](https://github.com/puppetlabs/vmpooler-deployment/tree/1.19.0) (2022-08-26)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.0.0-prod-all-providers...1.19.0)
