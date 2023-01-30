@@ -133,6 +133,7 @@ jobs:
         if: ${{ steps.dv.outputs.result == 'true' }}
         uses: docker/build-push-action@v3
         with:
+          context: docker
           push: true
           tags: |
             ghcr.io/${{ github.repository }}:${{ steps.nv.outputs.appVersion }}
@@ -155,7 +156,6 @@ jobs:
         run: |
           git config user.name "puppetlabs-jenkins"
           git config user.email "team-quality-engineering@puppet.com"
-          git --no-pager diff CHANGELOG.md
-          git add CHANGELOG.md
+          git add docs
           git commit -m "release helm-chart version ${{ steps.nv.outputs.version }}"
           git push
