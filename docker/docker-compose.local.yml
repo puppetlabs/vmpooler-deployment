@@ -41,16 +41,21 @@ services:
       - type: bind
         source: ./data/vmpooler.yaml
         target: /etc/vmpooler/vmpooler.yaml
+      # - type: bind
+      #   source: ./data/vmpooler-example-key.json
+      #   target: /etc/vmpooler/vmpooler-example-key.json
     ports:
       - "8082:4567"
     environment:
       - VMPOOLER_DEBUG=true # for use of dummy auth
+      - DEBUG_FLAG=true
       - VMPOOLER_CONFIG_FILE=/etc/vmpooler/vmpooler.yaml
       - REDIS_SERVER=redis-server
       - REDIS_PASSWORD=vmpooler
       - LOGFILE=/dev/null
       - VMPOOLER_TRACING_ENABLED=true
       - VMPOOLER_TRACING_JAEGER_HOST=http://jaeger-aio:14268/api/traces
+      # - GOOGLE_APPLICATION_CREDENTIALS=/etc/vmpooler/vmpooler-example-key.json
     command: api
     links:
       - redis-server
@@ -63,16 +68,21 @@ services:
       - type: bind
         source: ./data/vmpooler.yaml
         target: /etc/vmpooler/vmpooler.yaml
+      # - type: bind
+      #   source: ./data/vmpooler-example-key.json
+      #   target: /etc/vmpooler/vmpooler-example-key.json
     ports:
       - "8083:4567"
     environment:
       - VMPOOLER_DEBUG=true # for use of dummy auth
+      - DEBUG_FLAG=true
       - VMPOOLER_CONFIG_FILE=/etc/vmpooler/vmpooler.yaml
       - REDIS_SERVER=redis-server
       - REDIS_PASSWORD=vmpooler
       - LOGFILE=/dev/null
       - VMPOOLER_TRACING_ENABLED=true
       - VMPOOLER_TRACING_JAEGER_HOST=http://jaeger-aio:14268/api/traces
+      # - GOOGLE_APPLICATION_CREDENTIALS=/etc/vmpooler/vmpooler-example-key.json
     command: manager
     links:
       - redis-server

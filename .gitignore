@@ -1,5 +1,6 @@
 /*/**/vendor/bundle/
 /docker/**/vmpooler.yaml
+/docker/data/*.json
 .vagrant/
 .idea/
 helm-charts/vmpooler/charts/

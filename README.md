@@ -1,16 +1,15 @@
 # vmpooler-deployment
 
-- [vmpooler-deployment](#vmpooler-deployment)
-  - [VMPooler Components](#vmpooler-components)
-  - [Docker Registry](#docker-registry)
-  - [Helm Repository](#helm-repository)
-    - [Adding / updating charts](#adding--updating-charts)
-  - [Development](#development)
-    - [Docker Compose URLs](#docker-compose-urls)
-    - [Deploy Chart for Testing](#deploy-chart-for-testing)
-  - [Releasing](#releasing)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [VMPooler Components](#vmpooler-components)
+- [Docker Registry](#docker-registry)
+- [Helm Repository](#helm-repository)
+  - [Adding / updating charts](#adding--updating-charts)
+- [Development](#development)
+  - [Docker Compose URLs](#docker-compose-urls)
+  - [Deploy Chart for Testing](#deploy-chart-for-testing)
+- [Releasing](#releasing)
+- [Contributing](#contributing)
+- [License](#license)
 
 This repo contains Dockerfiles and a Helm chart that can be used to deploy [VMPooler](https://github.com/puppetlabs/vmpooler). The Release Engineering team at Puppet uses the code here as part of operating our VMPooler instances.
 
@@ -19,6 +18,7 @@ This repo contains Dockerfiles and a Helm chart that can be used to deploy [VMPo
 The docker image gnerated and hosted by this project contain the following VMPooler components:
 
 - [VMPooler Core](https://github.com/puppetlabs/vmpooler)
+- [VMPooler Google CloudDNS Plugin](https://github.com/puppetlabs/vmpooler-dns-google-clouddns)
 - [VMPooler EC2 Provider](https://github.com/puppetlabs/vmpooler-provider-ec2)
 - [VMPooler GCE Provider](https://github.com/puppetlabs/vmpooler-provider-gce)
 - [VMPooler vSphere Provider](https://github.com/puppetlabs/vmpooler-provider-vsphere)
@@ -56,6 +56,8 @@ Prerequisites:
       - [vmpooler-provider-ec2](https://github.com/puppetlabs/vmpooler-provider-ec2)
       - [vmpooler-provider-gce](https://github.com/puppetlabs/vmpooler-provider-gce)
       - [vmpooler-provider-vsphere](https://github.com/puppetlabs/vmpooler-provider-vsphere)
+   - If you are not using Dynamic DNS, then the following DNS plugins can be used to manage records across different compute providers:
+     - [VMPooler Google CloudDNS Plugin](https://github.com/puppetlabs/vmpooler-dns-google-clouddns)
 2. Chose a Development method:
    - Develop via local source:
       1. Clone all of the known vmpooler projects listed at [vmpooler-components](#vmpooler-components) under a common directory, for example:
@@ -63,6 +65,7 @@ Prerequisites:
            ```bash
            |-- vmpooler-projects
            |  |--vmpooler-deployment
+           |  |--vmpooler-dns-google-clouddns
            |  |--vmpooler-provider-ec2
            |  |--vmpooler-provider-gce
            |  |--vmpooler-provider-vsphere
@@ -72,10 +75,10 @@ Prerequisites:
       3. Run `docker compose -f vmpooler-deployment/docker/docker-compose.local.yml up`
 
    - Develop via Git source:
-      1. For the component(s) you are developing on, commit and push changes to a branch.
-      2. Change to the `docker` directory and modify the `Gemfile` as needed to pull the gem(s) from your git branch.
-      3. Run `./update-gemfile-lock` to update the `Gemfile.lock`
-      4. Run `docker compose build && docker compose up`.
+      4. For the component(s) you are developing on, commit and push changes to a branch.
+      5. Change to the `docker` directory and modify the `Gemfile` as needed to pull the gem(s) from your git branch.
+      6. Run `./update-gemfile-lock` to update the `Gemfile.lock`
+      7. Run `docker compose build && docker compose up`.
 
 When a dependency Helm chart is updated, be sure to run `./update-chart-lock` to update the lockfile, otherwise the test and release workflows will fail.
 
