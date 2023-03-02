@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/puppetlabs/vmpooler-deployment/tree/2.1.0) (2023-03-02)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/2.0.0...2.1.0)
+
+**Merged pull requests:**
+
+- \(maint\) Make additional options configurable in values file [\#95](https://github.com/puppetlabs/vmpooler-deployment/pull/95) ([yachub](https://github.com/yachub))
+
 ## [2.0.0](https://github.com/puppetlabs/vmpooler-deployment/tree/2.0.0) (2023-01-30)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/1.19.0...2.0.0)
@@ -15,19 +23,12 @@
 
 ## [1.19.0](https://github.com/puppetlabs/vmpooler-deployment/tree/1.19.0) (2022-08-26)
 
-[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.0.0-prod-all-providers...1.19.0)
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/1.8.0-prod-all-providers...1.19.0)
 
 **Merged pull requests:**
 
 - \(RE-14811\) Remove DIO as codeowners [\#60](https://github.com/puppetlabs/vmpooler-deployment/pull/60) ([yachub](https://github.com/yachub))
 - Add release-engineering to codeowners [\#55](https://github.com/puppetlabs/vmpooler-deployment/pull/55) ([yachub](https://github.com/yachub))
-
-## [3.0.0-prod-all-providers](https://github.com/puppetlabs/vmpooler-deployment/tree/3.0.0-prod-all-providers) (2022-08-02)
-
-[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/1.8.0-prod-all-providers...3.0.0-prod-all-providers)
-
-**Merged pull requests:**
-
 - \(maint\) Add the ec2 provider to our prod-all-providers Gemfile [\#54](https://github.com/puppetlabs/vmpooler-deployment/pull/54) ([sbeaulie](https://github.com/sbeaulie))
 
 ## [1.8.0-prod-all-providers](https://github.com/puppetlabs/vmpooler-deployment/tree/1.8.0-prod-all-providers) (2022-07-26)
