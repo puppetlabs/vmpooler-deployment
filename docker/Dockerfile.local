@@ -9,7 +9,7 @@
 # Then change directory into vmpooler-projects and build with: 
 
 
-FROM amd64/jruby:9.3.6-jdk
+FROM amd64/jruby:9.4.1-jdk
 
 LABEL org.opencontainers.image.description "VMPooler plus all known providers"
 
