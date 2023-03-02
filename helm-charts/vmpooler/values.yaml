@@ -6,9 +6,16 @@ image:
   repository: ghcr.io/puppetlabs/vmpooler-deployment/vmpooler
   pullPolicy: IfNotPresent
 
+jruby_opts: '-J-XX:+UseG1GC'
 configmapName: 'vmpooler-baseconfig'
 sut_domain: 'vmpooler.example.com'
 usage_stats: true
+ondemand_request_ttl: '50'
+ondemand_clone_limit: '50'
+max_lifetime_upper_limit: '336'
+vm_lifetime: '2'
+vm_lifetime_auth: '12'
+timeout: '15'
 
 # .json private key, set in ENV var
 gce:

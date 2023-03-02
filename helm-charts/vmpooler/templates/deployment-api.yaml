@@ -58,7 +58,7 @@ spec:
           periodSeconds: 10
         env:
         - name: JRUBY_OPTS
-          value: '-J-XX:+UseG1GC'
+          value: '{{ .Values.jruby_opts }}'
         - name: PORT
           value: {{ .Values.service.port | quote  }}
         - name: SITE_NAME
@@ -80,15 +80,15 @@ spec:
         - name: REDIS_SERVER
           value: 'redis-master'
         - name: ONDEMAND_REQUEST_TTL
-          value: "50"
+          value: '{{ .Values.ondemand_request_ttl }}'
         - name: ONDEMAND_CLONE_LIMIT
-          value: "50"
+          value: '{{ .Values.ondemand_clone_limit }}'
         - name: MAX_LIFETIME_UPPER_LIMIT
-          value: "336"
+          value: '{{ .Values.max_lifetime_upper_limit }}'
         - name: VM_LIFETIME
-          value: '2'
+          value: '{{ .Values.vm_lifetime }}'
         - name: VM_LIFETIME_AUTH
-          value: '12'
+          value: '{{ .Values.vm_lifetime_auth }}'
         - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
