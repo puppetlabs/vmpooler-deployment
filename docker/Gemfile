@@ -1,10 +1,10 @@
 source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
-gem 'vmpooler',                    '~> 2.4'
+gem 'vmpooler',                    '~> 2.5'
 # Remove temporarily until a stable minor release is published
 # gem 'vmpooler-provider-ec2',       '~> 0.0.1'
-gem 'vmpooler-provider-gce',       '~> 0.4'
-gem 'vmpooler-provider-vsphere',   '~> 2.0'
+gem 'vmpooler-provider-gce',       '~> 0.5'
+gem 'vmpooler-provider-vsphere',   '~> 2.1'
 
 # For development install via a git branch use something like:
 # gem 'vmpooler', git: 'https://github.com/puppetlabs/vmpooler.git', branch: 'my-feature'
