@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.0](https://github.com/puppetlabs/vmpooler-deployment/tree/2.2.0) (2023-03-06)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/2.1.0...2.2.0)
+
+**Implemented enhancements:**
+
+- \(RE-15161\) Bump jruby to 9.4.1.0 and remove tcpsocket usage [\#97](https://github.com/puppetlabs/vmpooler-deployment/pull/97) ([yachub](https://github.com/yachub))
+
 ## [2.1.0](https://github.com/puppetlabs/vmpooler-deployment/tree/2.1.0) (2023-03-02)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/2.0.0...2.1.0)
