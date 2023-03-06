@@ -8,7 +8,7 @@
 # RUN:
 #   docker run -e VMPOOLER_CONFIG -p 80:4567 -it vmpooler
 
-FROM jruby:9.3.6-jdk
+FROM jruby:9.4.1.0-jdk11
 
 LABEL org.opencontainers.image.description "VMPooler plus all known providers"
 
