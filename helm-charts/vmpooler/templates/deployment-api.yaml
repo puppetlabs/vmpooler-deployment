@@ -46,13 +46,13 @@ spec:
           - 'api'
         livenessProbe:
           httpGet:
-            path: /api/v2/status
+            path: /api/v3/status
             port: {{ .Values.service.port }}
           initialDelaySeconds: 40
           periodSeconds: 10
         readinessProbe:
           httpGet:
-            path: /api/v2/status
+            path: /api/v3/status
             port: {{ .Values.service.port }}
           initialDelaySeconds: 40
           periodSeconds: 10
