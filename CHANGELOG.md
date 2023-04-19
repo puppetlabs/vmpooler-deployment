@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.0.0) (2023-04-19)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/2.2.0...3.0.0)
+
+**Breaking changes:**
+
+- \(RE-15124\) Bump vmpooler, providers, and add new dns gem [\#92](https://github.com/puppetlabs/vmpooler-deployment/pull/92) ([yachub](https://github.com/yachub))
+
 ## [2.2.0](https://github.com/puppetlabs/vmpooler-deployment/tree/2.2.0) (2023-03-06)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/2.1.0...2.2.0)
