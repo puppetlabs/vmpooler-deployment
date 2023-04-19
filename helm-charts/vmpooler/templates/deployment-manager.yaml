@@ -93,8 +93,6 @@ spec:
           value: '20'
         - name: PURGE_UNCONFIGURED_FOLDERS
           value: 'true'
-        - name: DOMAIN
-          value: {{ .Values.sut_domain }}
         - name: VMPOOLER_CONFIG_FILE
           value: /etc/vmpooler/vmpooler.yaml
         - name: VMPOOLER_TRACING_ENABLED
