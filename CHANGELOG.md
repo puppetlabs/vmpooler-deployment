@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.1.0) (2023-05-01)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.0.0...3.1.0)
+
+**Implemented enhancements:**
+
+- Bump all vmpooler gems [\#103](https://github.com/puppetlabs/vmpooler-deployment/pull/103) ([yachub](https://github.com/yachub))
+
+**Merged pull requests:**
+
+- Migrate issue management to Jira [\#102](https://github.com/puppetlabs/vmpooler-deployment/pull/102) ([yachub](https://github.com/yachub))
+- Bump jruby from 9.4.1.0-jdk11 to 9.4.2.0-jdk11 in /docker [\#99](https://github.com/puppetlabs/vmpooler-deployment/pull/99) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [3.0.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.0.0) (2023-04-19)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/2.2.0...3.0.0)
