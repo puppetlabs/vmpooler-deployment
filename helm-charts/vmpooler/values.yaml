@@ -16,6 +16,10 @@ vm_lifetime: '2'
 vm_lifetime_auth: '12'
 timeout: '15'
 
+redis_connection_pool_size: '200'
+redis_connection_pool_timeout: '40'
+redis_reconnect_attempts: '40'
+
 :dns_configs:
   :example:
     dns_class: dynamic-dns
