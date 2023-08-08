@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 30820ec115e27fddfffc9a85b75a051c3e6604b9
+  revision: 713b0fa5f3778c64bc4d5082bf952f5d589456b3
   branch: update_redis
   specs:
     vmpooler (3.1.0)
@@ -75,7 +75,7 @@ GEM
     json (2.6.3-java)
     jwt (2.7.1)
     memoist (0.16.2)
-    mini_mime (1.1.2)
+    mini_mime (1.1.5)
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
