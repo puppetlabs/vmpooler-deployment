@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 46156fd85f4e0ef5fa0fd7a6273353947a4a66ce
+  revision: 86066d204e114159ac219b225d13888314d518ab
   branch: update_redis
   specs:
     vmpooler (3.1.0)
@@ -138,7 +138,7 @@ GEM
       json (~> 2.3)
       nokogiri (~> 1.12, >= 1.12.5)
       optimist (~> 3.0)
-    redis (5.0.6)
+    redis (5.0.7)
       redis-client (>= 0.9.0)
     redis-client (0.15.0)
       connection_pool
