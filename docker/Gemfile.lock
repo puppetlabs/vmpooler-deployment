@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 9d18e7f54191806f094ff07e17202bc43de21694
+  revision: 113ca2dacbb8fed80a28118c28f353b80108d9c6
   branch: update_redis
   specs:
-    vmpooler (3.1.0)
+    vmpooler (3.2.0)
       concurrent-ruby (~> 1.1)
       connection_pool (~> 2.4)
       deep_merge (~> 1.2)
