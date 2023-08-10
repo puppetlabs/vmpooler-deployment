@@ -110,11 +110,11 @@ spec:
         - name: REDIS_SERVER
           value: 'redis-master'
         - name: REDIS_CONNECTION_POOL_SIZE
-          value: "200"
+          value: '{{ .Values.redis_connection_pool_size }}'
         - name: REDIS_CONNECTION_POOL_TIMEOUT
-          value: "40"
+          value: '{{ .Values.redis_connection_pool_timeout }}'
         - name: REDIS_RECONNECT_ATTEMPTS
-          value: "40"
+          value: '{{ .Values.redis_reconnect_attempts }}'
         - name: ONDEMAND_REQUEST_TTL
           value: '{{ .Values.ondemand_request_ttl }}'
         - name: ONDEMAND_CLONE_LIMIT
