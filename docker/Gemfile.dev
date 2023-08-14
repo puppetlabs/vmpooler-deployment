@@ -1,0 +1,11 @@
+source ENV['GEM_SOURCE'] || 'https://rubygems.org'
+
+gem 'vmpooler', path: '/opt/vmpooler-projects/vmpooler'
+gem 'vmpooler-dns-gcp', path: '/opt/vmpooler-projects/vmpooler-dns-gcp'
+# gem 'vmpooler-provider-ec2', path: '/opt/vmpooler-projects/vmpooler-provider-ec2'
+gem 'vmpooler-provider-gce', path: '/opt/vmpooler-projects/vmpooler-provider-gce'
+gem 'vmpooler-provider-vsphere', path: '/opt/vmpooler-projects/vmpooler-provider-vsphere'
+
+group :development do
+  gem 'rerun', '~> 0.14'
+end

@@ -31,7 +31,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 COPY ./Gemfile* ./
 
-RUN bundle config set --local jobs 3 && \
+RUN bundle config set --local jobs 3 without development && \
     bundle install
 
 ENTRYPOINT ["docker-entrypoint.sh"]

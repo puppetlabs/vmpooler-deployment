@@ -1,15 +1,16 @@
 # vmpooler-deployment
 
-- [VMPooler Components](#vmpooler-components)
-- [Docker Registry](#docker-registry)
-- [Helm Repository](#helm-repository)
-  - [Adding / updating charts](#adding--updating-charts)
-- [Development](#development)
-  - [Docker Compose URLs](#docker-compose-urls)
-  - [Deploy Chart for Testing](#deploy-chart-for-testing)
-- [Releasing](#releasing)
-- [Contributing](#contributing)
-- [License](#license)
+- [vmpooler-deployment](#vmpooler-deployment)
+  - [VMPooler Components](#vmpooler-components)
+  - [Docker Registry](#docker-registry)
+  - [Helm Repository](#helm-repository)
+    - [Adding / updating charts](#adding--updating-charts)
+  - [Development](#development)
+    - [Docker Compose URLs](#docker-compose-urls)
+    - [Deploy Chart for Testing](#deploy-chart-for-testing)
+  - [Releasing](#releasing)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 This repo contains Dockerfiles and a Helm chart that can be used to deploy [VMPooler](https://github.com/puppetlabs/vmpooler). The Release Engineering team at Puppet uses the code here as part of operating our VMPooler instances.
 
@@ -64,21 +65,21 @@ Prerequisites:
 
            ```bash
            |-- vmpooler-projects
+           |  |--vmpooler
            |  |--vmpooler-deployment
-           |  |--vmpooler-dns-google-clouddns
+           |  |--vmpooler-dns-gcp
            |  |--vmpooler-provider-ec2
            |  |--vmpooler-provider-gce
            |  |--vmpooler-provider-vsphere
            ```
 
-      2. From the `vmpooler-projects` directory run `docker build -t vmpooler-local -f vmpooler-deployment/docker/Dockerfile.local .`
-      3. Run `docker compose -f vmpooler-deployment/docker/docker-compose.local.yml up`
+      2. From the `vmpooler-projects/vmpooler-deployment` directory run `docker compose -f docker/docker-compose.dev.yml up --build`
 
    - Develop via Git source:
-      4. For the component(s) you are developing on, commit and push changes to a branch.
-      5. Change to the `docker` directory and modify the `Gemfile` as needed to pull the gem(s) from your git branch.
-      6. Run `./update-gemfile-lock` to update the `Gemfile.lock`
-      7. Run `docker compose build && docker compose up`.
+      1. For the component(s) you are developing on, commit and push changes to a branch.
+      2. Change to the `docker` directory and modify the `Gemfile` as needed to pull the gem(s) from your git branch.
+      3. Run `./update-gemfile-lock` to update the `Gemfile.lock`
+      4. Run `docker compose build && docker compose up`.
 
 When a dependency Helm chart is updated, be sure to run `./update-chart-lock` to update the lockfile, otherwise the test and release workflows will fail.
 
@@ -91,7 +92,7 @@ These are the default ports used in the docker compose file, to change them edit
 | Redis Server       | `localhost:6379` (Password: `vmpooler`)                     |
 | Redis Commander    | <http://localhost:8080> (Credentials: `admin:admin`)        |
 | Jaeger             | <http://localhost:8081>
-| VMPooler API       | <http://localhost:8082/api/v2>                              |
+| VMPooler API       | <http://localhost:8082/api/v3>                              |
 | VMPooler Dashboard | <http://localhost:8082/dashboard>                           |
 | Metrics (API)      | <http://localhost:8082/prometheus>                          |
 | Metrics (Manager)  | <http://localhost:8083/prometheus>                          |

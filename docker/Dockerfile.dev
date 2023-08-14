@@ -24,21 +24,15 @@ RUN apt-get update -qq && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
-COPY vmpooler /opt/vmpooler
-COPY vmpooler-dns-gcp /opt/vmpooler-dns-gcp
-COPY vmpooler-provider-ec2 /opt/vmpooler-provider-ec2
-COPY vmpooler-provider-gce /opt/vmpooler-provider-gce
-COPY vmpooler-provider-vsphere /opt/vmpooler-provider-vsphere
-
 RUN gem install bundler
 
-COPY vmpooler-deployment/docker/docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.dev.sh /usr/local/bin/docker-entrypoint.sh
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-COPY vmpooler-deployment/docker/Gemfile.local ./Gemfile
+COPY Gemfile.dev ./Gemfile
+COPY .rerun ./.rerun
 
-RUN bundle config set --local jobs 3 && \
-    bundle install
+RUN bundle config set --local jobs 3
 
 ENTRYPOINT ["docker-entrypoint.sh"]
