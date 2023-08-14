@@ -2,6 +2,21 @@ apiVersion: v1
 entries:
   vmpooler:
   - apiVersion: v2
+    appVersion: 5.2.0
+    created: "2023-08-10T19:39:59.624068419Z"
+    dependencies:
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.13.2
+    description: A Helm chart to deploy vmpooler
+    digest: db4d79f5daaba68d989f0c1cd71e6753ad2324e481eedade0932ff635394ec66
+    icon: https://github.com/puppetlabs/vmpooler/raw/master/lib/vmpooler/public/img/logo.png
+    name: vmpooler
+    type: application
+    urls:
+    - https://puppetlabs.github.io/vmpooler-deployment/vmpooler-3.2.0.tgz
+    version: 3.2.0
+  - apiVersion: v2
     appVersion: 5.1.0
     created: "2023-08-10T16:25:40.014437992Z"
     dependencies:

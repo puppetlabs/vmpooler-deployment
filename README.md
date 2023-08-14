@@ -1,17 +1,15 @@
 # vmpooler-deployment
 
-- [vmpooler-deployment](#vmpooler-deployment)
-  - [VMPooler Components](#vmpooler-components)
-  - [Docker Registry](#docker-registry)
-  - [Helm Repository](#helm-repository)
-    - [Adding / updating charts](#adding--updating-charts)
-  - [Development](#development)
-    - [Docker Compose URLs](#docker-compose-urls)
-    - [Deploy Chart for Testing](#deploy-chart-for-testing)
-  - [Submitting Issues](#submitting-issues)
-  - [Releasing](#releasing)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [VMPooler Components](#vmpooler-components)
+- [Docker Registry](#docker-registry)
+- [Helm Repository](#helm-repository)
+  - [Adding / updating charts](#adding--updating-charts)
+- [Development](#development)
+  - [Docker Compose URLs](#docker-compose-urls)
+  - [Deploy Chart for Testing](#deploy-chart-for-testing)
+- [Releasing](#releasing)
+- [Contributing](#contributing)
+- [License](#license)
 
 This repo contains Dockerfiles and a Helm chart that can be used to deploy [VMPooler](https://github.com/puppetlabs/vmpooler). The Release Engineering team at Puppet uses the code here as part of operating our VMPooler instances.
 
@@ -107,10 +105,6 @@ Helm charts are hosted with GitHub Pages since GitHub Packages does not support 
 
 Artifactory Example:
 `curl -H 'X-JFrog-Art-Api:<YOUR_API_KEY>' -T vmpooler-x.y.z-rc.1.tgz "https://artifactory.example.com/artifactory/helm__local/vmpooler-x.y.z-rc.1.tgz"`
-
-## Submitting Issues
-
-Please file any issues or requests in Jira at <https://puppet.atlassian.net/jira/software/c/projects/POOLER/issues> where project development is tracked across all VMPooler related components.
 
 ## Releasing
 

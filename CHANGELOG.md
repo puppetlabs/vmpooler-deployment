@@ -1,11 +1,21 @@
 # Changelog
 
+## [3.2.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.2.0) (2023-08-10)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.1.0...3.2.0)
+
+**Implemented enhancements:**
+
+- Bump jruby and all vmpooler gems [\#110](https://github.com/puppetlabs/vmpooler-deployment/pull/110) ([yachub](https://github.com/yachub))
+- \(RE-15638\) Make redis connection options configurable [\#108](https://github.com/puppetlabs/vmpooler-deployment/pull/108) ([yachub](https://github.com/yachub))
+
 ## [3.1.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.1.0) (2023-05-01)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.0.0...3.1.0)
 
 **Implemented enhancements:**
 
+- Explicit JDK Tag and Newer Java Compatibility [\#85](https://github.com/puppetlabs/vmpooler-deployment/issues/85)
 - Bump all vmpooler gems [\#103](https://github.com/puppetlabs/vmpooler-deployment/pull/103) ([yachub](https://github.com/yachub))
 
 **Merged pull requests:**

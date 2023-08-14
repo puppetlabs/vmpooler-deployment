@@ -110,9 +110,9 @@ spec:
         - name: REDIS_SERVER
           value: 'redis-master'
         - name: REDIS_CONNECTION_POOL_SIZE
-          value: "200"
+          value: '{{ .Values.redis_connection_pool_size }}'
         - name: REDIS_CONNECTION_POOL_TIMEOUT
-          value: "40"
+          value: '{{ .Values.redis_connection_pool_timeout }}'
         - name: REDIS_RECONNECT_ATTEMPTS
           value: "[0,0.25,0.5,1,2,4,8,16,32,64,128,256,512]"
         - name: ONDEMAND_REQUEST_TTL
