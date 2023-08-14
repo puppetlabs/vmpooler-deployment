@@ -36,8 +36,14 @@ services:
 
   vmpooler-api:
     # See image build instructions in README and Dockerfile.local
-    image: vmpooler-local
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    tty: true
     volumes:
+      - type: bind
+        source: ../../
+        target: /opt/vmpooler-projects
       - type: bind
         source: ./data/vmpooler.yaml
         target: /etc/vmpooler/vmpooler.yaml
@@ -63,8 +69,14 @@ services:
 
   vmpooler-manager:
     # See image build instructions in README and Dockerfile.local
-    image: vmpooler-local
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    tty: true
     volumes:
+      - type: bind
+        source: ../../
+        target: /opt/vmpooler-projects
       - type: bind
         source: ./data/vmpooler.yaml
         target: /etc/vmpooler/vmpooler.yaml

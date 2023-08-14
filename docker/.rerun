@@ -1,0 +1,2 @@
+--dir /opt/vmpooler-projects/
+--pattern **/lib/**/*.{erb,rb}
