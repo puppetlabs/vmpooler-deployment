@@ -1,5 +1,18 @@
 # Changelog
 
+## ["3.3.0"](https://github.com/puppetlabs/vmpooler-deployment/tree/"3.3.0") (2023-08-16)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.2.0..."3.3.0")
+
+**Implemented enhancements:**
+
+- \(maint\) update redis\_reconnect\_attempts format and vmpooler gem [\#114](https://github.com/puppetlabs/vmpooler-deployment/pull/114) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(RE-15696\) Improve development experience [\#113](https://github.com/puppetlabs/vmpooler-deployment/pull/113) ([yachub](https://github.com/yachub))
+
+**Closed issues:**
+
+- Improve DevX [\#112](https://github.com/puppetlabs/vmpooler-deployment/issues/112)
+
 ## [3.2.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.2.0) (2023-08-10)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.1.0...3.2.0)
