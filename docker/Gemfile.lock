@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/puppetlabs/vmpooler-provider-gce.git
-  revision: e1a804231b0e6e1b7dc894a72f13f03368584ac3
+  revision: 9d37967e00786e1ee62ed1ff3c1d291e6685509e
   branch: POD-10
   specs:
     vmpooler-provider-gce (1.2.0)
