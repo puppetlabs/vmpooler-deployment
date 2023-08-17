@@ -1,3 +1,59 @@
+GIT
+  remote: https://github.com/puppetlabs/vmpooler-dns-gcp.git
+  revision: 5101be683c82dc0a68edcb4a2ae3688e36444b45
+  branch: main
+  specs:
+    vmpooler-dns-gcp (1.2.0)
+      google-cloud-dns (~> 0.35.1)
+      googleauth (>= 0.16.2, < 1.3.0)
+      vmpooler (~> 3.0)
+
+GIT
+  remote: https://github.com/puppetlabs/vmpooler-provider-gce.git
+  revision: e1a804231b0e6e1b7dc894a72f13f03368584ac3
+  branch: POD-10
+  specs:
+    vmpooler-provider-gce (1.2.0)
+      google-apis-compute_v1 (~> 0.14)
+      googleauth (>= 0.16.2, < 1.4.0)
+      vmpooler (~> 3.0)
+
+GIT
+  remote: https://github.com/puppetlabs/vmpooler-provider-vsphere.git
+  revision: 4651a85e28b2f733ddec0839d42acb12ddc9af67
+  branch: POD-10
+  specs:
+    vmpooler-provider-vsphere (3.2.0)
+      rbvmomi2 (>= 3.1, < 4.0)
+      vmpooler (~> 3.0)
+
+GIT
+  remote: https://github.com/puppetlabs/vmpooler.git
+  revision: e43f89a6663beb147172f6e1e52758a6ac9e2389
+  branch: POD-10
+  specs:
+    vmpooler (3.2.0)
+      concurrent-ruby (~> 1.1)
+      connection_pool (~> 2.4)
+      deep_merge (~> 1.2)
+      net-ldap (~> 0.16)
+      opentelemetry-exporter-jaeger (= 0.23.0)
+      opentelemetry-instrumentation-concurrent_ruby (= 0.21.1)
+      opentelemetry-instrumentation-http_client (= 0.22.2)
+      opentelemetry-instrumentation-redis (= 0.25.3)
+      opentelemetry-instrumentation-sinatra (= 0.23.2)
+      opentelemetry-resource_detectors (= 0.24.1)
+      opentelemetry-sdk (~> 1.3, >= 1.3.0)
+      pickup (~> 0.0.11)
+      prometheus-client (>= 2, < 5)
+      puma (>= 5.0.4, < 7)
+      rack (>= 2.2, < 4.0)
+      rake (~> 13.0)
+      redis (~> 5.0)
+      sinatra (>= 2, < 4)
+      spicy-proton (~> 2.1)
+      statsd-ruby (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -119,7 +175,7 @@ GEM
       optimist (~> 3.0)
     redis (5.0.7)
       redis-client (>= 0.9.0)
-    redis-client (0.15.0)
+    redis-client (0.16.0)
       connection_pool
     representable (3.2.0)
       declarative (< 0.1.0)
@@ -145,38 +201,6 @@ GEM
     tilt (2.2.0)
     trailblazer-option (0.1.2)
     uber (0.1.0)
-    vmpooler (3.3.0)
-      concurrent-ruby (~> 1.1)
-      connection_pool (~> 2.4)
-      deep_merge (~> 1.2)
-      net-ldap (~> 0.16)
-      opentelemetry-exporter-jaeger (= 0.23.0)
-      opentelemetry-instrumentation-concurrent_ruby (= 0.21.1)
-      opentelemetry-instrumentation-http_client (= 0.22.2)
-      opentelemetry-instrumentation-redis (= 0.25.3)
-      opentelemetry-instrumentation-sinatra (= 0.23.2)
-      opentelemetry-resource_detectors (= 0.24.1)
-      opentelemetry-sdk (~> 1.3, >= 1.3.0)
-      pickup (~> 0.0.11)
-      prometheus-client (>= 2, < 5)
-      puma (>= 5.0.4, < 7)
-      rack (>= 2.2, < 4.0)
-      rake (~> 13.0)
-      redis (~> 5.0)
-      sinatra (>= 2, < 4)
-      spicy-proton (~> 2.1)
-      statsd-ruby (~> 1.4)
-    vmpooler-dns-gcp (1.2.0)
-      google-cloud-dns (~> 0.35.1)
-      googleauth (>= 0.16.2, < 1.3.0)
-      vmpooler (~> 3.0)
-    vmpooler-provider-gce (1.2.0)
-      google-apis-compute_v1 (~> 0.14)
-      googleauth (>= 0.16.2, < 1.4.0)
-      vmpooler (~> 3.0)
-    vmpooler-provider-vsphere (3.2.0)
-      rbvmomi2 (>= 3.1, < 4.0)
-      vmpooler (~> 3.0)
     webrick (1.8.1)
     zonefile (1.06)
 
@@ -184,10 +208,10 @@ PLATFORMS
   universal-java-11
 
 DEPENDENCIES
-  vmpooler (~> 3.0)
-  vmpooler-dns-gcp (~> 1.0)
-  vmpooler-provider-gce (~> 1.0)
-  vmpooler-provider-vsphere (~> 3.0)
+  vmpooler!
+  vmpooler-dns-gcp!
+  vmpooler-provider-gce!
+  vmpooler-provider-vsphere!
 
 BUNDLED WITH
-   2.4.12
+   2.4.18
