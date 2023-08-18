@@ -57,6 +57,8 @@ spec:
           initialDelaySeconds: 40
           periodSeconds: 10
         env:
+        - name: DEBUG_FLAG
+          value: 'true'
         - name: JRUBY_OPTS
           value: '{{ .Values.jruby_opts }}'
         - name: PORT

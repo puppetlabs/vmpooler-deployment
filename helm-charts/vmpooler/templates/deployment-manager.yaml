@@ -63,6 +63,8 @@ spec:
           initialDelaySeconds: 40
           periodSeconds: 10
         env:
+        - name: DEBUG_FLAG
+          value: 'true'
         - name: GOOGLE_APPLICATION_CREDENTIALS
           value: '{{ .Values.gce.keyfile }}'
         - name: AWS_KEY_FILE_LOCATION
