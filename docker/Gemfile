@@ -5,7 +5,7 @@ gem 'vmpooler-dns-gcp',            '~> 1.0'
 # Remove temporarily until a stable minor release is published
 # gem 'vmpooler-provider-ec2',       '~> 0.0.1'
 gem 'vmpooler-provider-gce',       '~> 1.0'
-gem 'vmpooler-provider-vsphere',   '~> 3.0'
+gem 'vmpooler-provider-vsphere',   '~> 3.3'
 
 # For development install via a git branch use something like:
 # gem 'vmpooler', git: 'https://github.com/puppetlabs/vmpooler.git', branch: 'my-feature'
