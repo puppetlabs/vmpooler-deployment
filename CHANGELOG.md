@@ -1,5 +1,13 @@
 # Changelog
 
+## ["3.4.0"](https://github.com/puppetlabs/vmpooler-deployment/tree/"3.4.0") (2023-08-21)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.3.0..."3.4.0")
+
+**Implemented enhancements:**
+
+- \(maint\) Update vmpooler to 3.4.0, vmpooler-provider-gce to 1.3.0, and… [\#124](https://github.com/puppetlabs/vmpooler-deployment/pull/124) ([isaac-hammes](https://github.com/isaac-hammes))
+
 ## [3.3.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.3.0) (2023-08-16)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.2.0...3.3.0)
