@@ -1,8 +1,8 @@
 # Changelog
 
-## ["3.4.0"](https://github.com/puppetlabs/vmpooler-deployment/tree/"3.4.0") (2023-08-21)
+## [3.4.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.4.0) (2023-08-21)
 
-[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.3.0..."3.4.0")
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.3.0...3.4.0)
 
 **Implemented enhancements:**
 
