@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 4ecc2fcb41a5c29b5f5d083bea80a0ea213fd89b
+  revision: 75d0240844badea8570e555c91194c2cb9454051
   branch: improve_ldap_bind
   specs:
-    vmpooler (3.3.0)
+    vmpooler (3.4.0)
       concurrent-ruby (~> 1.1)
       connection_pool (~> 2.4)
       deep_merge (~> 1.2)
@@ -40,7 +40,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
-    google-apis-compute_v1 (0.75.0)
+    google-apis-compute_v1 (0.76.0)
       google-apis-core (>= 0.11.0, < 2.a)
     google-apis-core (0.11.1)
       addressable (~> 2.5, >= 2.5.1)
