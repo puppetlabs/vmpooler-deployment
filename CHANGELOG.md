@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.4.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.4.1) (2023-08-22)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.4.0...3.4.1)
+
+**Fixed bugs:**
+
+- \(RE-15710\) Bump vmpooler-provider-vsphere gem to 3.3.1 [\#129](https://github.com/puppetlabs/vmpooler-deployment/pull/129) ([yachub](https://github.com/yachub))
+
 ## [3.4.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.4.0) (2023-08-21)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.3.0...3.4.0)
