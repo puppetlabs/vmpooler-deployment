@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.5.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.5.0) (2023-08-23)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.4.1...3.5.0)
+
+**Implemented enhancements:**
+
+- \(maint\) Update vmpooler to 3.5.0 and vmpooler-provider-vsphere to 3.3.2 [\#131](https://github.com/puppetlabs/vmpooler-deployment/pull/131) ([isaac-hammes](https://github.com/isaac-hammes))
+
 ## [3.4.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.4.1) (2023-08-22)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.4.0...3.4.1)
