@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.5.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.5.1) (2023-08-24)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.5.0...3.5.1)
+
+**Fixed bugs:**
+
+- \(maint\) Bump vmpooler gem to 3.5.1 [\#135](https://github.com/puppetlabs/vmpooler-deployment/pull/135) ([yachub](https://github.com/yachub))
+
 ## [3.5.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.5.0) (2023-08-23)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.4.1...3.5.0)
