@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/puppetlabs/vmpooler-provider-vsphere.git
+  revision: dd309616123366b278bb173c52ea22273b3b033c
+  branch: update_for_redis_5
+  specs:
+    vmpooler-provider-vsphere (3.3.2)
+      rbvmomi2 (>= 3.1, < 4.0)
+      vmpooler (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,7 +22,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
-    google-apis-compute_v1 (0.76.0)
+    google-apis-compute_v1 (0.77.0)
       google-apis-core (>= 0.11.0, < 2.a)
     google-apis-core (0.11.1)
       addressable (~> 2.5, >= 2.5.1)
@@ -24,7 +33,7 @@ GEM
       retriable (>= 2.0, < 4.a)
       rexml
       webrick
-    google-apis-dns_v1 (0.32.0)
+    google-apis-dns_v1 (0.33.0)
       google-apis-core (>= 0.11.0, < 2.a)
     google-cloud-core (1.6.0)
       google-cloud-env (~> 1.0)
@@ -174,9 +183,6 @@ GEM
       google-apis-compute_v1 (~> 0.14)
       googleauth (>= 0.16.2, < 1.4.0)
       vmpooler (~> 3.0)
-    vmpooler-provider-vsphere (3.3.2)
-      rbvmomi2 (>= 3.1, < 4.0)
-      vmpooler (~> 3.0)
     webrick (1.8.1)
     zonefile (1.06)
 
@@ -187,7 +193,7 @@ DEPENDENCIES
   vmpooler (~> 3.0)
   vmpooler-dns-gcp (~> 1.0)
   vmpooler-provider-gce (~> 1.0)
-  vmpooler-provider-vsphere (~> 3.0)
+  vmpooler-provider-vsphere!
 
 BUNDLED WITH
    2.4.12
