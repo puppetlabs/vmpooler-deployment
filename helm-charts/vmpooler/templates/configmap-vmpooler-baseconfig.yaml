@@ -12,9 +12,11 @@ data:
     :tagfilter:
       project: '^([^/]+)'
 
+    {{- if .Values.auth }}
     :auth:
       {{- with .Values.auth }}
         {{- toYaml . | nindent 6 }}
       {{- end }}
+    {{- end }}
     :prometheus:
       prefix: {{ .Values.vmpoolerInstance }}

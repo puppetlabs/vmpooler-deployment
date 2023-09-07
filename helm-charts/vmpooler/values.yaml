@@ -44,8 +44,7 @@ baseconfig_extras: {}
   #     vmware_cluster2: 100
   #     vmware_cluster4: 180
 
-auth:
-  provider: 'dummy'
+# auth:
   # provider: 'ldap'
   # :ldap:
   #   host: 'ldap.example.com'
