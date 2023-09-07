@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 35a497b159a48e4ee5b7c96cc6def94bef929cb3
+  revision: 8d818fe105f419d93bce3c4e9f70ed66dad6cd64
   branch: test_migrate
   specs:
     vmpooler (3.5.1)
