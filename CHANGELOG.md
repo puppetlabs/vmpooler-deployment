@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.6.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.6.0) (2023-09-07)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.5.3...3.6.0)
+
+**Implemented enhancements:**
+
+- \(RE-15565\) Make auth config customizable and remove default dummy auth [\#142](https://github.com/puppetlabs/vmpooler-deployment/pull/142) ([yachub](https://github.com/yachub))
+
 ## [3.5.3](https://github.com/puppetlabs/vmpooler-deployment/tree/3.5.3) (2023-08-30)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.5.2...3.5.3)
