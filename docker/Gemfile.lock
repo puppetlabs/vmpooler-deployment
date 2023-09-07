@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/puppetlabs/vmpooler-provider-vsphere.git
+  revision: c43d8968664817e563452b1831ee8f7b30d1bb97
+  branch: test
+  specs:
+    vmpooler-provider-vsphere (3.3.4)
+      rbvmomi2 (>= 3.1, < 4.0)
+      vmpooler (~> 3.0)
+
+GIT
   remote: https://github.com/puppetlabs/vmpooler.git
   revision: 77d88621bb05224c9b227ecffb51c686d0731650
   branch: test_migrate
@@ -180,9 +189,6 @@ GEM
       google-apis-compute_v1 (~> 0.14)
       googleauth (>= 0.16.2, < 1.4.0)
       vmpooler (~> 3.0)
-    vmpooler-provider-vsphere (3.3.4)
-      rbvmomi2 (>= 3.1, < 4.0)
-      vmpooler (~> 3.0)
     webrick (1.8.1)
     zonefile (1.06)
 
@@ -193,7 +199,7 @@ DEPENDENCIES
   vmpooler!
   vmpooler-dns-gcp (~> 1.0)
   vmpooler-provider-gce (~> 1.0)
-  vmpooler-provider-vsphere (~> 3.0)
+  vmpooler-provider-vsphere!
 
 BUNDLED WITH
    2.4.12
