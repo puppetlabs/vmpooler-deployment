@@ -156,6 +156,13 @@ redis:
       initialDelaySeconds: 40
       periodSeconds: 10
       failureThreshold: 10
+    lifecycleHooks:
+      postStart:
+        exec:
+          command:
+          - /bin/sh
+          - -c
+          - echo "AUTH $REDIS_PASSWORD\nBGREWRITEAOF" | redis-cli
   metrics:
     enabled: true
     resources:
