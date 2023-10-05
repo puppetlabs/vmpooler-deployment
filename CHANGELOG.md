@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.7.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.7.0) (2023-10-05)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.6.0...3.7.0)
+
+**Implemented enhancements:**
+
+- Gem dependency updates [\#145](https://github.com/puppetlabs/vmpooler-deployment/pull/145) ([yachub](https://github.com/yachub))
+
+**Fixed bugs:**
+
+- \(RE-15163\) Call BGREWRITEAOF on the redis database every restart to reduce aof file size [\#144](https://github.com/puppetlabs/vmpooler-deployment/pull/144) ([isaac-hammes](https://github.com/isaac-hammes))
+
 ## [3.6.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.6.0) (2023-09-07)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.5.3...3.6.0)
