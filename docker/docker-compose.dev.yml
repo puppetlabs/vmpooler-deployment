@@ -5,10 +5,6 @@ services:
     # This should match the major version used in the vmpooler helm chart
     image: redis:6
     command: "redis-server --requirepass vmpooler"
-    volumes:
-      - type: bind
-        source: ./data/redis
-        target: /data
     ports:
       - "6379:6379"
 
