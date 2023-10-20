@@ -5,10 +5,6 @@ services:
     # This should match the major version used in the vmpooler helm chart
     image: redis:6
     command: "redis-server --requirepass vmpooler"
-    volumes:
-      - type: bind
-        source: ./data/redis
-        target: /data
     ports:
       - "6379:6379"
 
@@ -98,4 +94,24 @@ services:
     command: manager
     links:
       - redis-server
+      - jaeger-aio
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    links:
+      - vmpooler-api
+      - vmpooler-manager
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    ports:
+     - '3000:3000'
+    links:
+      - prometheus
       - jaeger-aio

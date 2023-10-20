@@ -87,15 +87,19 @@ When a dependency Helm chart is updated, be sure to run `./update-chart-lock` to
 
 These are the default ports used in the docker compose file, to change them edit the `ports` key under the desired service in either `docker/docker-compose.yml` or `docker/docker-compose.local.yml`.
 
-| App/Endpoint       | Path                                                        |
-|--------------------|-------------------------------------------------------------|
-| Redis Server       | `localhost:6379` (Password: `vmpooler`)                     |
-| Redis Commander    | <http://localhost:8080> (Credentials: `admin:admin`)        |
-| Jaeger             | <http://localhost:8081>
-| VMPooler API       | <http://localhost:8082/api/v3>                              |
-| VMPooler Dashboard | <http://localhost:8082/dashboard>                           |
-| Metrics (API)      | <http://localhost:8082/prometheus>                          |
-| Metrics (Manager)  | <http://localhost:8083/prometheus>                          |
+Tracing data is sent to the Jaeger instance, a prometheus server scrapes metrics, and both are pre-configured in Grafana as datasources for easy visualization and history of data.
+
+| App/Endpoint       | Path                                                         |
+|--------------------|--------------------------------------------------------------|
+| Redis Server       | `localhost:6379` (Password: `vmpooler`)                      |
+| Redis Commander    | <http://localhost:8080> (Credentials: `admin:admin`)         |
+| Jaeger             | <http://localhost:8081>                                      |
+| VMPooler API       | <http://localhost:8082/api/v3>                               |
+| VMPooler Dashboard | <http://localhost:8082/dashboard>                            |
+| Metrics (API)      | <http://localhost:8082/prometheus>                           |
+| Metrics (Manager)  | <http://localhost:8083/prometheus>                           |
+| Prometheus Server  | <http://localhost:9090>                                      |
+| Grafana Server     | <http://localhost:3000> (Credentials: `admin:admin`)         |
 
 ### Deploy Chart for Testing
 
