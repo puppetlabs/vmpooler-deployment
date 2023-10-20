@@ -95,3 +95,23 @@ services:
     links:
       - redis-server
       - jaeger-aio
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    links:
+      - vmpooler-api
+      - vmpooler-manager
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    ports:
+     - '3000:3000'
+    links:
+      - prometheus
+      - jaeger-aio
