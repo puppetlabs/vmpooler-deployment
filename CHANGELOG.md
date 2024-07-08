@@ -1,8 +1,8 @@
 # Changelog
 
-## [3.8.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.8.0) (2024-07-01)
+## [3.8.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.8.1) (2024-07-08)
 
-[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.7.0...3.8.0)
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.7.0...3.8.1)
 
 **Implemented enhancements:**
 
@@ -14,6 +14,8 @@
 
 **Merged pull requests:**
 
+- \(maint\) empty commit for redeploy attempt [\#155](https://github.com/puppetlabs/vmpooler-deployment/pull/155) ([e-gris](https://github.com/e-gris))
+- RE-16207: Create a 3.8.0 release / script cleanup [\#154](https://github.com/puppetlabs/vmpooler-deployment/pull/154) ([e-gris](https://github.com/e-gris))
 - Bump jruby from 9.4.3.0-jdk11 to 9.4.5.0-jdk11 in /docker [\#149](https://github.com/puppetlabs/vmpooler-deployment/pull/149) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [3.7.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.7.0) (2023-10-05)
