@@ -12,11 +12,11 @@
   - [Contributing](#contributing)
   - [License](#license)
 
-This repo contains Dockerfiles and a Helm chart that can be used to deploy [VMPooler](https://github.com/puppetlabs/vmpooler). The Release Engineering team at Puppet uses the code here as part of operating our VMPooler instances.
+Contains Dockerfiles and a Helm chart that are used to deploy [VMPooler](https://github.com/puppetlabs/vmpooler).
 
 ## VMPooler Components
 
-The docker image gnerated and hosted by this project contain the following VMPooler components:
+The docker image contains these VMPooler components:
 
 - [VMPooler Core](https://github.com/puppetlabs/vmpooler)
 - [VMPooler Google CloudDNS Plugin](https://github.com/puppetlabs/vmpooler-dns-google-clouddns)
@@ -26,34 +26,34 @@ The docker image gnerated and hosted by this project contain the following VMPoo
 
 ## Docker Registry
 
-The GitHub Actions in this repository publish images to GitHub Packages. You can browse the VMPooler containers [here](https://github.com/puppetlabs/vmpooler-deployment/pkgs/container/vmpooler-deployment%2Fvmpooler).
+GitHub Actions publishes images to GitHub Packages. Browse the VMPooler containers: https://github.com/puppetlabs/vmpooler-deployment/pkgs/container/vmpooler-deployment%2Fvmpooler
 
-The vmpooler officially released docker image tags use a semantic version, where the version increments correlate to the increments in any of the gems at `docker/Gemfile`.
+The vmpooler released docker image tags use semantic versioning; the version increments correlate to the increments in any of the gems at `docker/Gemfile`.
 
 Image tags starting with `pr<PULL REQUEST NUMBER>-<GIT SHA>` are generated when opening and pushing to a pull request and will periodically be cleaned up.
 
 ## Helm Repository
 
-The `docs/` folder in this repository represents a Helm repository served via GitHub Pages at https://puppetlabs.github.io/vmpooler-deployment/
+The `docs` folder represents a Helm repository served via GitHub Pages at https://puppetlabs.github.io/vmpooler-deployment
 
 ```bash
-$ helm repo add vmpooler-deployment https://puppetlabs.github.io/vmpooler-deployment/
+$ helm repo add vmpooler-deployment https://puppetlabs.github.io/vmpooler-deployment
 "vmpooler-deployment" has been added to your repositories
 ```
 
 ### Adding / updating charts
 
-Make the desired changes to the helm chart in helm-charts/vmpooler and run `./update-chart`.
+Update the helm chart in helm-charts/vmpooler. Run `./update-chart`.
 
 ## Development
 
 Prerequisites:
 
-- [Docker](https://docs.docker.com/engine/install/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Docker](https://docs.docker.com/engine/install)
+- [Docker Compose](https://docs.docker.com/compose/install)
 
 1. Become familiar with the configuration file `docker/vmpooler.yaml` as described in [VMPooler](https://github.com/puppetlabs/vmpooler) Core.
-   - The default configuration file only enables the dummy provider built into [VMPooler](https://github.com/puppetlabs/vmpooler) Core. See each project below for documentation on how to use provider specific options:
+   - The default configuration file enables the dummy provider built into [VMPooler](https://github.com/puppetlabs/vmpooler) Core. See each project for documentation on how to use provider specific options:
       - [vmpooler-provider-ec2](https://github.com/puppetlabs/vmpooler-provider-ec2)
       - [vmpooler-provider-gce](https://github.com/puppetlabs/vmpooler-provider-gce)
       - [vmpooler-provider-vsphere](https://github.com/puppetlabs/vmpooler-provider-vsphere)
@@ -81,11 +81,11 @@ Prerequisites:
       3. Run `./update-gemfile-lock` to update the `Gemfile.lock`
       4. Run `docker compose build && docker compose up`.
 
-When a dependency Helm chart is updated, be sure to run `./update-chart-lock` to update the lockfile, otherwise the test and release workflows will fail.
+When a dependency Helm chart is updated, always run `./update-chart-lock` to update the lockfile, otherwise the test and release workflows will fail.
 
 ### Docker Compose URLs
 
-These are the default ports used in the docker compose file, to change them edit the `ports` key under the desired service in either `docker/docker-compose.yml` or `docker/docker-compose.local.yml`.
+These are the default ports used in the docker compose file. To change them edit the `ports` key under the service in either `docker/docker-compose.yml` or `docker/docker-compose.local.yml`.
 
 Tracing data is sent to the Jaeger instance, a prometheus server scrapes metrics, and both are pre-configured in Grafana as datasources for easy visualization and history of data.
 
@@ -115,21 +115,17 @@ Artifactory Example:
 
 Create a GitHub tag and release, publish a new docker image, and helm chart by opening a release prep pull request and running the release action below.
 
-**NOTE**: Due to the GitHub limitation that does not allow any method of bypassing status checks on a protected branch, the process below will technically publish the helm chart pointing to a nonexistent docker tag until the release workflow is run.
+**NOTE**: Due to the GitHub limitation that does not allow any method of bypassing status checks on a protected branch, the process below will publish the helm chart pointing to a nonexistent docker tag until the release workflow is run.
 
-1. Bump the "appVersion" key in `helm-charts/vmpooler/Chart.yaml` appropriately based on changes to `docker/Gemfile` and `docker/Gemfile.lock` in merged pull requests since the last release.
+1. Increment the "appVersion" key in `helm-charts/vmpooler/Chart.yaml` appropriately based on changes to `docker/Gemfile` and `docker/Gemfile.lock` in merged pull requests since the last release.
    - This key pertains to the docker tag that will be pushed upon release.
-2. Bump the "version" key in `helm-charts/vmpooler/Chart.yaml` appropriately based on changes to the chart itself and increments of the "appVersion" in merged pull requests since the last release.
+2. Increment the "version" key in `helm-charts/vmpooler/Chart.yaml` appropriately based on changes to the chart itself and increments of the "appVersion" in merged pull requests since the last release.
    - This key pertains to the helm chart verison that will be pushed upon release.
 3. Run `./update-changelog` to update `CHANGELOG.md`.
 4. Run `./build-chart` to package the new chart and update the repo index.
-5. Commit and push changes to a new branch, then open a pull request against `main` and be sure to add the "maintenance" label.
+5. Commit and push changes to a new branch then open a pull request against `main` and be sure to add the "maintenance" label.
 6. After the pull request is approved and merged, then navigate to Actions --> Docker and Helm Release --> run workflow --> Branch: main --> Run workflow.
    - This action will push a tagged docker image to the GitHub container registry and helm chart to GitHub pages.
-
-## Contributing
-
-We welcome and encourage contributions!
 
 ## License
 

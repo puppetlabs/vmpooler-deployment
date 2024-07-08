@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.8.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.8.0) (2024-07-01)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.7.0...3.8.0)
+
+**Implemented enhancements:**
+
+- \(RE-15696\) Local Development - Add Grafana and remove redis mount [\#147](https://github.com/puppetlabs/vmpooler-deployment/pull/147) ([yachub](https://github.com/yachub))
+
+**Fixed bugs:**
+
+- vsphere [\#153](https://github.com/puppetlabs/vmpooler-deployment/issues/153)
+
+**Merged pull requests:**
+
+- Bump jruby from 9.4.3.0-jdk11 to 9.4.5.0-jdk11 in /docker [\#149](https://github.com/puppetlabs/vmpooler-deployment/pull/149) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [3.7.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.7.0) (2023-10-05)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.6.0...3.7.0)
