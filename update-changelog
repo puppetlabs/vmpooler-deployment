@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
-docker run -it --rm -e CHANGELOG_GITHUB_TOKEN -v $(pwd):/usr/local/src/your-app \
-  githubchangeloggenerator/github-changelog-generator:1.16.2 \
-  github_changelog_generator --future-release $(yq .version helm-charts/vmpooler/Chart.yaml)
+set -e
+set -x
+
+future_release=$(yq .version helm-charts/vmpooler/Chart.yaml)
+
+docker run --interactive --tty --rm=true --env=CHANGELOG_GITHUB_TOKEN \
+       --volume=$(pwd):/usr/local/src/your-app \
+       githubchangeloggenerator/github-changelog-generator:1.16.2 \
+       github_changelog_generator --future-release="$future_release"
