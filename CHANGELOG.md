@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.8.3](https://github.com/puppetlabs/vmpooler-deployment/tree/3.8.3) (2025-01-30)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.8.2...3.8.3)
+
+**Implemented enhancements:**
+
+- Update memory limit for api pod to 4G [\#159](https://github.com/puppetlabs/vmpooler-deployment/pull/159) ([mahikalra](https://github.com/mahikalra))
+
 ## [3.8.2](https://github.com/puppetlabs/vmpooler-deployment/tree/3.8.2) (2024-07-25)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.7.0...3.8.2)
