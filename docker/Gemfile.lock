@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 891a7da22db8e95f56e38ec011558f16a08f9c5a
-  ref: 891a7da22db8e95f56e38ec011558f16a08f9c5a
+  revision: 391f851d969323487a6b7c97d12c8f153e4f6b25
+  ref: main
   specs:
     vmpooler (3.7.0)
       concurrent-ruby (~> 1.1)
@@ -9,8 +9,8 @@ GIT
       deep_merge (~> 1.2)
       net-ldap (~> 0.16)
       opentelemetry-exporter-jaeger (= 0.23.0)
-      opentelemetry-instrumentation-concurrent_ruby (= 0.21.2)
-      opentelemetry-instrumentation-http_client (= 0.22.3)
+      opentelemetry-instrumentation-concurrent_ruby (= 0.21.1)
+      opentelemetry-instrumentation-http_client (= 0.22.2)
       opentelemetry-instrumentation-redis (= 0.25.3)
       opentelemetry-instrumentation-sinatra (= 0.23.2)
       opentelemetry-resource_detectors (= 0.24.2)
@@ -104,10 +104,10 @@ GEM
     opentelemetry-instrumentation-base (0.22.3)
       opentelemetry-api (~> 1.0)
       opentelemetry-registry (~> 0.1)
-    opentelemetry-instrumentation-concurrent_ruby (0.21.2)
+    opentelemetry-instrumentation-concurrent_ruby (0.21.1)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.22.1)
-    opentelemetry-instrumentation-http_client (0.22.3)
+    opentelemetry-instrumentation-http_client (0.22.2)
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.20.0)
       opentelemetry-instrumentation-base (~> 0.22.1)
@@ -144,7 +144,7 @@ GEM
     puma (6.6.0-java)
       nio4r (~> 2.0)
     racc (1.8.1-java)
-    rack (2.2.15)
+    rack (2.2.16)
     rack-protection (3.2.0)
       base64 (>= 0.1.0)
       rack (~> 2.2, >= 2.2.4)
