@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: bc800d070f1bb415f42c4f72303c7f69863b968c
+  revision: 85dd7a847277bd86f4b830444d404a097b188832
   ref: P4DEVOPS-6096
   specs:
     vmpooler (3.7.0)
@@ -9,12 +9,12 @@ GIT
       deep_merge (~> 1.2)
       net-ldap (~> 0.16)
       opentelemetry-exporter-jaeger (= 0.23.0)
-      opentelemetry-instrumentation-concurrent_ruby (= 0.21.1)
-      opentelemetry-instrumentation-http_client (= 0.22.2)
+      opentelemetry-instrumentation-concurrent_ruby (= 0.21.2)
+      opentelemetry-instrumentation-http_client (= 0.22.3)
       opentelemetry-instrumentation-redis (= 0.25.3)
       opentelemetry-instrumentation-sinatra (= 0.23.2)
       opentelemetry-resource_detectors (= 0.24.2)
-      opentelemetry-sdk (= 1.3.0)
+      opentelemetry-sdk (= 1.3)
       pickup (~> 0.0.11)
       prometheus-client (>= 2, < 5)
       puma (>= 5.0.4, < 7)
@@ -104,10 +104,10 @@ GEM
     opentelemetry-instrumentation-base (0.22.3)
       opentelemetry-api (~> 1.0)
       opentelemetry-registry (~> 0.1)
-    opentelemetry-instrumentation-concurrent_ruby (0.21.1)
+    opentelemetry-instrumentation-concurrent_ruby (0.21.2)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.22.1)
-    opentelemetry-instrumentation-http_client (0.22.2)
+    opentelemetry-instrumentation-http_client (0.22.3)
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.20.0)
       opentelemetry-instrumentation-base (~> 0.22.1)
