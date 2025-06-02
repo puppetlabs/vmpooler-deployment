@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: ce80408d897dd738f15435810b6091366fe8427d
+  revision: 2bdc7498314c42d424c382ddd050d37bfd9fe8d3
   ref: P4DEVOPS-6096
   specs:
     vmpooler (3.7.0)
@@ -14,7 +14,7 @@ GIT
       opentelemetry-instrumentation-redis (= 0.25.3)
       opentelemetry-instrumentation-sinatra (= 0.23.2)
       opentelemetry-resource_detectors (= 0.24.2)
-      opentelemetry-sdk (~> 1.3, >= 1.3.0)
+      opentelemetry-sdk (= 1.3.0)
       pickup (~> 0.0.11)
       prometheus-client (>= 2, < 5)
       puma (>= 5.0.4, < 7)
@@ -128,7 +128,7 @@ GEM
     opentelemetry-resource_detectors (0.24.2)
       google-cloud-env
       opentelemetry-sdk (~> 1.0)
-    opentelemetry-sdk (1.8.0)
+    opentelemetry-sdk (1.3.0)
       opentelemetry-api (~> 1.1)
       opentelemetry-common (~> 0.20)
       opentelemetry-registry (~> 0.2)
