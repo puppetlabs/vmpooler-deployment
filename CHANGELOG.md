@@ -1,5 +1,13 @@
 # Changelog
 
+## ["3.9.0"](https://github.com/puppetlabs/vmpooler-deployment/tree/"3.9.0") (2025-06-04)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.8.3..."3.9.0")
+
+**Merged pull requests:**
+
+- \(maint\) Update vmpooler to version 3.7.0 [\#162](https://github.com/puppetlabs/vmpooler-deployment/pull/162) ([isaac-hammes](https://github.com/isaac-hammes))
+
 ## [3.8.3](https://github.com/puppetlabs/vmpooler-deployment/tree/3.8.3) (2025-01-30)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.8.2...3.8.3)
