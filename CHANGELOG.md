@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.9.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.9.1) (2025-08-01)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.9.0...3.9.1)
+
+**Merged pull requests:**
+
+- \(P4DEVOPS-7373\) Use artifactory instead of bitnami repos [\#166](https://github.com/puppetlabs/vmpooler-deployment/pull/166) ([isaac-hammes](https://github.com/isaac-hammes))
+
 ## [3.9.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.9.0) (2025-06-05)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.8.3...3.9.0)
