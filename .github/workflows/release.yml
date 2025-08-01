@@ -16,6 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Activate twingate to access artifactory
+        uses: twingate/github-action@main
+        with:
+          service-key: ${{ secrets.TWINGATE_PUBLIC_REPO_KEY }}
+
       - name: Get New Chart Version
         id: nv
         run: |

@@ -3,7 +3,7 @@
 set -e
 set -x
 
-helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add artifactory https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
 cd /apps/helm-charts/vmpooler
 helm dependency update
 cd /apps/docs
