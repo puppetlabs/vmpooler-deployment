@@ -130,6 +130,12 @@ affinity: {}
 # Redis provided by bitnami/redis
 # For a full list of parameters see: https://github.com/bitnami/charts/tree/master/bitnami/redis/
 redis:
+  # Override the Redis image
+  image:
+    registry: artifactory.delivery.puppetlabs.net
+    repository: release-engineering/redis
+    tag: "6.2.7-debian-11-r11"
+    pullPolicy: IfNotPresent
   fullnameOverride: redis
   architecture: standalone
   networkPolicy:
@@ -164,6 +170,11 @@ redis:
           - -c
           - echo "AUTH $REDIS_PASSWORD\nBGREWRITEAOF" | redis-cli
   metrics:
+    image:
+      registry: artifactory.delivery.puppetlabs.net
+      repository: release-engineering/redis-exporter
+      tag: "1.43.0-debian-11-r4"
+      pullPolicy: IfNotPresent
     enabled: true
     resources:
       requests:

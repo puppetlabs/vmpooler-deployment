@@ -15,6 +15,11 @@ jobs:
           clean: true
           fetch-depth: 0
 
+      - name: Activate twingate to access artifactory
+        uses: twingate/github-action@main
+        with:
+          service-key: ${{ secrets.TWINGATE_PUBLIC_REPO_KEY }}
+
       - uses: azure/setup-helm@v3
 
       - uses: actions/setup-python@v4
@@ -25,4 +30,4 @@ jobs:
         uses: helm/chart-testing-action@v2
 
       - name: Run chart-testing (lint)
-        run: ct lint --chart-dirs helm-charts --all --validate-maintainers=false --chart-repos bitnami=https://charts.bitnami.com/bitnami
+        run: ct lint --chart-dirs helm-charts --all --validate-maintainers=false --chart-repos artifactory=https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
