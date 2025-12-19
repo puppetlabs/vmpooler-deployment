@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 095b507a932f5a1c4b6a8346daf3aa68749977a1
+  revision: cd50c8ea650b2b630c75d1a56581135e62243605
   branch: retry_logic
   specs:
     vmpooler (3.7.0)
