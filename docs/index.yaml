@@ -2,8 +2,23 @@ apiVersion: v1
 entries:
   vmpooler:
   - apiVersion: v2
+    appVersion: pr168-1a8c806fc80c07f4fbdc2bb15a5c3b9a1e77c3fe
+    created: "2025-12-19T06:58:51.380956175Z"
+    dependencies:
+    - name: redis
+      repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
+      version: 16.13.2
+    description: A Helm chart to deploy vmpooler
+    digest: cf9f5864e7e55d9f211fb649e20294dec17a387486110ff1cc4ebec01faaf16a
+    icon: https://github.com/puppetlabs/vmpooler/raw/master/lib/vmpooler/public/img/logo.png
+    name: vmpooler
+    type: application
+    urls:
+    - https://puppetlabs.github.io/vmpooler-deployment/vmpooler-3.9.3-rc.7.tgz
+    version: 3.9.3-rc.7
+  - apiVersion: v2
     appVersion: pr168-806898a99d2947240a0eaef6ebc3ae5a04b86595
-    created: "2025-12-19T06:43:49.071956383Z"
+    created: "2025-12-19T06:58:51.376849794Z"
     dependencies:
     - name: redis
       repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
@@ -18,7 +33,7 @@ entries:
     version: 3.9.3-rc.6
   - apiVersion: v2
     appVersion: pr168-cd0bce6bf3c400853fca6bc197b5b32845374ab7
-    created: "2025-12-19T06:43:49.068387998Z"
+    created: "2025-12-19T06:58:51.36926716Z"
     dependencies:
     - name: redis
       repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
@@ -33,7 +48,7 @@ entries:
     version: 3.9.3-rc.5
   - apiVersion: v2
     appVersion: pr168-fd4f8eab8c993b471422334d5ead1841c948dd2e
-    created: "2025-12-19T06:43:49.064298522Z"
+    created: "2025-12-19T06:58:51.362276402Z"
     dependencies:
     - name: redis
       repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
@@ -48,7 +63,7 @@ entries:
     version: 3.9.3-rc.4
   - apiVersion: v2
     appVersion: pr687-0e8c3c6
-    created: "2025-12-19T06:43:49.06037909Z"
+    created: "2025-12-19T06:58:51.354890977Z"
     dependencies:
     - name: redis
       repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
@@ -63,7 +78,7 @@ entries:
     version: 3.9.3-rc.3
   - apiVersion: v2
     appVersion: 3.9.3-rc.2
-    created: "2025-12-19T06:43:49.056535159Z"
+    created: "2025-12-19T06:58:51.347049074Z"
     dependencies:
     - name: redis
       repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
@@ -78,7 +93,7 @@ entries:
     version: 3.9.3-rc.2
   - apiVersion: v2
     appVersion: pr168-d6996cd2337c6d1809007daf11bf79ce9cdd3da1
-    created: "2025-12-19T06:43:49.052601602Z"
+    created: "2025-12-19T06:58:51.336877918Z"
     dependencies:
     - name: redis
       repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
@@ -93,7 +108,7 @@ entries:
     version: 3.9.3-rc.1
   - apiVersion: v2
     appVersion: 5.7.0
-    created: "2025-12-19T06:43:49.04894934Z"
+    created: "2025-12-19T06:58:51.328545949Z"
     dependencies:
     - name: redis
       repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
@@ -108,7 +123,7 @@ entries:
     version: 3.9.1
   - apiVersion: v2
     appVersion: 5.7.0
-    created: "2025-12-19T06:43:49.044128895Z"
+    created: "2025-12-19T06:58:51.319845326Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -123,7 +138,7 @@ entries:
     version: 3.9.0
   - apiVersion: v2
     appVersion: 5.6.0
-    created: "2025-12-19T06:43:49.040025002Z"
+    created: "2025-12-19T06:58:51.311569797Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -138,7 +153,7 @@ entries:
     version: 3.8.3
   - apiVersion: v2
     appVersion: 5.6.0
-    created: "2025-12-19T06:43:49.036378741Z"
+    created: "2025-12-19T06:58:51.303587584Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -153,7 +168,7 @@ entries:
     version: 3.8.2
   - apiVersion: v2
     appVersion: 5.6.0
-    created: "2025-12-19T06:43:49.031359376Z"
+    created: "2025-12-19T06:58:51.295667722Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -168,7 +183,7 @@ entries:
     version: 3.8.1
   - apiVersion: v2
     appVersion: 5.6.0
-    created: "2025-12-19T06:43:49.026839519Z"
+    created: "2025-12-19T06:58:51.288940894Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -183,7 +198,7 @@ entries:
     version: 3.8.0
   - apiVersion: v2
     appVersion: 5.6.0
-    created: "2025-12-19T06:43:49.023079506Z"
+    created: "2025-12-19T06:58:51.280681848Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -198,7 +213,7 @@ entries:
     version: 3.7.0
   - apiVersion: v2
     appVersion: 5.5.3
-    created: "2025-12-19T06:43:49.017782679Z"
+    created: "2025-12-19T06:58:51.273414215Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -213,7 +228,7 @@ entries:
     version: 3.6.0
   - apiVersion: v2
     appVersion: 5.5.3
-    created: "2025-12-19T06:43:49.013796746Z"
+    created: "2025-12-19T06:58:51.266414925Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -228,7 +243,7 @@ entries:
     version: 3.5.3
   - apiVersion: v2
     appVersion: 5.5.2
-    created: "2025-12-19T06:43:49.007065648Z"
+    created: "2025-12-19T06:58:51.258857056Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -243,7 +258,7 @@ entries:
     version: 3.5.2
   - apiVersion: v2
     appVersion: 5.5.1
-    created: "2025-12-19T06:43:49.003400636Z"
+    created: "2025-12-19T06:58:51.250586023Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -258,7 +273,7 @@ entries:
     version: 3.5.1
   - apiVersion: v2
     appVersion: 5.5.0
-    created: "2025-12-19T06:43:48.998359396Z"
+    created: "2025-12-19T06:58:51.243856323Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -273,7 +288,7 @@ entries:
     version: 3.5.0
   - apiVersion: v2
     appVersion: 5.4.1
-    created: "2025-12-19T06:43:48.994560257Z"
+    created: "2025-12-19T06:58:51.236126261Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -288,7 +303,7 @@ entries:
     version: 3.4.1
   - apiVersion: v2
     appVersion: 5.4.0
-    created: "2025-12-19T06:43:48.988531712Z"
+    created: "2025-12-19T06:58:51.228764061Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -303,7 +318,7 @@ entries:
     version: 3.4.0
   - apiVersion: v2
     appVersion: 5.3.0
-    created: "2025-12-19T06:43:48.984879242Z"
+    created: "2025-12-19T06:58:51.22098118Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -318,7 +333,7 @@ entries:
     version: 3.3.0
   - apiVersion: v2
     appVersion: 5.2.0
-    created: "2025-12-19T06:43:48.980426552Z"
+    created: "2025-12-19T06:58:51.213135323Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -333,7 +348,7 @@ entries:
     version: 3.2.0
   - apiVersion: v2
     appVersion: 5.1.0
-    created: "2025-12-19T06:43:48.976120323Z"
+    created: "2025-12-19T06:58:51.20727862Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -348,7 +363,7 @@ entries:
     version: 3.1.0
   - apiVersion: v2
     appVersion: 5.0.0
-    created: "2025-12-19T06:43:48.97213214Z"
+    created: "2025-12-19T06:58:51.201700332Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -363,7 +378,7 @@ entries:
     version: 3.0.0
   - apiVersion: v2
     appVersion: 4.1.0
-    created: "2025-12-19T06:43:48.967856328Z"
+    created: "2025-12-19T06:58:51.192644875Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -378,7 +393,7 @@ entries:
     version: 2.2.0
   - apiVersion: v2
     appVersion: 4.0.0
-    created: "2025-12-19T06:43:48.96389477Z"
+    created: "2025-12-19T06:58:51.185036684Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -393,7 +408,7 @@ entries:
     version: 2.1.0
   - apiVersion: v2
     appVersion: 4.0.0
-    created: "2025-12-19T06:43:48.958998824Z"
+    created: "2025-12-19T06:58:51.178708978Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -408,7 +423,7 @@ entries:
     version: 2.0.0
   - apiVersion: v2
     appVersion: 1.7.0-prod-all-providers
-    created: "2025-12-19T06:43:48.934440259Z"
+    created: "2025-12-19T06:58:51.135560991Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -423,7 +438,7 @@ entries:
     version: 1.19.0
   - apiVersion: v2
     appVersion: 1.7.0-prod-all-providers
-    created: "2025-12-19T06:43:48.928152042Z"
+    created: "2025-12-19T06:58:51.130250587Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -438,7 +453,7 @@ entries:
     version: 1.18.0
   - apiVersion: v2
     appVersion: 1.7.0-prod-all-providers
-    created: "2025-12-19T06:43:48.924089191Z"
+    created: "2025-12-19T06:58:51.124063274Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -453,7 +468,7 @@ entries:
     version: 1.17.0
   - apiVersion: v2
     appVersion: 1.6.0-prod-all-providers
-    created: "2025-12-19T06:43:48.920213427Z"
+    created: "2025-12-19T06:58:51.118458597Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -468,7 +483,7 @@ entries:
     version: 1.16.0
   - apiVersion: v2
     appVersion: 1.6.0-prod-all-providers
-    created: "2025-12-19T06:43:48.915241938Z"
+    created: "2025-12-19T06:58:51.111262347Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -483,7 +498,7 @@ entries:
     version: 1.15.0
   - apiVersion: v2
     appVersion: 1.6.0-prod-all-providers
-    created: "2025-12-19T06:43:48.911491592Z"
+    created: "2025-12-19T06:58:51.105452595Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -498,7 +513,7 @@ entries:
     version: 1.14.0
   - apiVersion: v2
     appVersion: 1.5.0-prod-all-providers
-    created: "2025-12-19T06:43:48.907180987Z"
+    created: "2025-12-19T06:58:51.100240213Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -513,7 +528,7 @@ entries:
     version: 1.13.0
   - apiVersion: v2
     appVersion: 1.5.0-prod-all-providers
-    created: "2025-12-19T06:43:48.903261972Z"
+    created: "2025-12-19T06:58:51.094226384Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -528,7 +543,7 @@ entries:
     version: 1.12.0
   - apiVersion: v2
     appVersion: 1.4.0-prod-all-providers
-    created: "2025-12-19T06:43:48.899465375Z"
+    created: "2025-12-19T06:58:51.089464486Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -543,7 +558,7 @@ entries:
     version: 1.11.1
   - apiVersion: v2
     appVersion: 1.3.0-prod-all-providers
-    created: "2025-12-19T06:43:48.896609542Z"
+    created: "2025-12-19T06:58:51.083963907Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -558,7 +573,7 @@ entries:
     version: 1.11.0
   - apiVersion: v2
     appVersion: 1.2.0-prod-all-providers
-    created: "2025-12-19T06:43:48.89293528Z"
+    created: "2025-12-19T06:58:51.077779133Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -573,7 +588,7 @@ entries:
     version: 1.10.1
   - apiVersion: v2
     appVersion: 1.2.0-prod-all-providers
-    created: "2025-12-19T06:43:48.889740067Z"
+    created: "2025-12-19T06:58:51.072242676Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -588,7 +603,7 @@ entries:
     version: 1.10.0
   - apiVersion: v2
     appVersion: 1.2.0-prod-all-providers
-    created: "2025-12-19T06:43:48.954859264Z"
+    created: "2025-12-19T06:58:51.172747594Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -603,7 +618,7 @@ entries:
     version: 1.9.0
   - apiVersion: v2
     appVersion: 1.2.0-prod-all-providers
-    created: "2025-12-19T06:43:48.952456604Z"
+    created: "2025-12-19T06:58:51.168846788Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -618,7 +633,7 @@ entries:
     version: 1.8.0
   - apiVersion: v2
     appVersion: 1.0.0-prod-all-providers
-    created: "2025-12-19T06:43:48.949906233Z"
+    created: "2025-12-19T06:58:51.164830312Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -633,7 +648,7 @@ entries:
     version: 1.7.1
   - apiVersion: v2
     appVersion: 1.0.0-prod-all-providers
-    created: "2025-12-19T06:43:48.947163318Z"
+    created: "2025-12-19T06:58:51.160254759Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -648,7 +663,7 @@ entries:
     version: 1.7.0
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2025-12-19T06:43:48.944888869Z"
+    created: "2025-12-19T06:58:51.156095684Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -663,7 +678,7 @@ entries:
     version: 1.6.3
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2025-12-19T06:43:48.942546918Z"
+    created: "2025-12-19T06:58:51.151859023Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -678,7 +693,7 @@ entries:
     version: 1.6.2
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2025-12-19T06:43:48.939547999Z"
+    created: "2025-12-19T06:58:51.144710432Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -693,7 +708,7 @@ entries:
     version: 1.6.1
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2025-12-19T06:43:48.937045505Z"
+    created: "2025-12-19T06:58:51.140477892Z"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -706,4 +721,4 @@ entries:
     urls:
     - https://puppetlabs.github.io/vmpooler-deployment/vmpooler-1.6.0.tgz
     version: 1.6.0
-generated: "2025-12-19T06:43:48.885534214Z"
+generated: "2025-12-19T06:58:51.064186166Z"
