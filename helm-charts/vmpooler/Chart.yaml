@@ -4,7 +4,7 @@ description: A Helm chart to deploy vmpooler
 type: application
 icon: https://github.com/puppetlabs/vmpooler/raw/master/lib/vmpooler/public/img/logo.png
 version: 3.9.3-rc.15
-appVersion: pr169-3788fa5af18a2e94e75e0ce33a4bfe2e72b6db1d
+appVersion: pr169-76c9756dbf76a96b2177ad88b2b2c8b6c47f2bd4
 dependencies:
   - name: redis
     repository: https://artifactory.delivery.puppetlabs.net/artifactory/helm__local
