@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: cda0ea134a68ff1dfec4e6cfa954733af6a465c4
+  revision: 1ba0b1d3180baca6cd9dedaeaf189f1816853b6a
   branch: P4DEVOPS-8567
   specs:
     vmpooler (3.7.0)
@@ -77,6 +77,7 @@ GEM
       signet (>= 0.16, < 2.a)
     httpclient (2.9.0)
       mutex_m
+    json (2.18.0)
     json (2.18.0-java)
     jwt (2.10.2)
       base64
@@ -92,7 +93,10 @@ GEM
     net-ldap (0.20.0)
       base64
       ostruct
+    nio4r (2.7.5)
     nio4r (2.7.5-java)
+    nokogiri (1.18.10-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.18.10-java)
       racc (~> 1.4)
     opentelemetry-api (1.7.0)
@@ -146,8 +150,11 @@ GEM
     prometheus-client (4.2.5)
       base64
     public_suffix (6.0.2)
+    puma (6.6.1)
+      nio4r (~> 2.0)
     puma (6.6.1-java)
       nio4r (~> 2.0)
+    racc (1.8.1)
     racc (1.8.1-java)
     rack (2.2.21)
     rack-protection (3.2.0)
@@ -202,6 +209,7 @@ GEM
     zonefile (1.06)
 
 PLATFORMS
+  arm64-darwin-25
   universal-java-11
 
 DEPENDENCIES
@@ -211,4 +219,4 @@ DEPENDENCIES
   vmpooler-provider-vsphere (~> 3.0)
 
 BUNDLED WITH
-   2.4.12
+  4.0.2
