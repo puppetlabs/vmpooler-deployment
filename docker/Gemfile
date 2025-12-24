@@ -1,6 +1,6 @@
 source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
-gem 'vmpooler',                    '~> 3.0'
+gem 'vmpooler', git: 'https://github.com/puppetlabs/vmpooler.git', branch: 'P4DEVOPS-8570'
 gem 'vmpooler-dns-gcp',            '~> 1.0'
 # Remove temporarily until a stable minor release is published
 # gem 'vmpooler-provider-ec2',       '~> 0.0.1'
