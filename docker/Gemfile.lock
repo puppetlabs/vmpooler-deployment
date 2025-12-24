@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puppetlabs/vmpooler.git
-  revision: 4270fa6fb9eeb72c7d8cb5fa0c8354272a79181a
+  revision: d2f132017a9b90126a6656caea4b942f972ba59c
   branch: P4DEVOPS-8567
   specs:
     vmpooler (3.7.0)
