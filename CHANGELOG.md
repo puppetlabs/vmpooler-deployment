@@ -1,12 +1,12 @@
 # Changelog
 
-## [3.10.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.0) (2026-03-05)
+## [3.10.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.0) (2026-01-15)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.9.1...3.10.0)
 
-**Implemented enhancements:**
+**Merged pull requests:**
 
-- Update vmpooler to version 3.8.1 [\#TBD](https://github.com/puppetlabs/vmpooler-deployment/pull/TBD) ([TBD](https://github.com/TBD))
+- Update vmpooler to 3.8.1 [\#172](https://github.com/puppetlabs/vmpooler-deployment/pull/172) ([smahima27](https://github.com/smahima27))
 
 ## [3.9.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.9.1) (2025-08-01)
 
