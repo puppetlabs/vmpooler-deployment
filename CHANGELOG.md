@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Release prep for vmpooler-deployment 3.10.0 [\#173](https://github.com/puppetlabs/vmpooler-deployment/pull/173) ([smahima27](https://github.com/smahima27))
 - Update vmpooler to 3.8.1 [\#172](https://github.com/puppetlabs/vmpooler-deployment/pull/172) ([smahima27](https://github.com/smahima27))
 
 ## [3.9.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.9.1) (2025-08-01)
