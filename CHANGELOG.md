@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.10.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.0) (2026-01-15)
+## [3.10.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.0) (2026-03-06)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.9.1...3.10.0)
 
