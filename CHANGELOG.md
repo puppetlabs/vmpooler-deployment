@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.10.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.1) (2026-03-17)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.10.0...3.10.1)
+
+**Merged pull requests:**
+
+- Release 3.10.1: Wire circuit breaker with vmpooler 3.9.0 and vmpooler-provider-vsphere 3.4.0 [\#176](https://github.com/puppetlabs/vmpooler-deployment/pull/176) ([smahima27](https://github.com/smahima27))
+
 ## [3.10.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.0) (2026-03-06)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.9.1...3.10.0)
@@ -15,7 +23,7 @@
 
 **Merged pull requests:**
 
-- \(P4DEVOPS-7373\) Use artifactory instead of bitnami repos [\#166](https://github.com/puppetlabs/vmpooler-deployment/pull/166) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(P4DEVOPS-7373\) Use artifactory instead of bitnami repos [\#166](https://github.com/puppetlabs/vmpooler-deployment/pull/166) ([isaac-jha](https://github.com/isaac-jha))
 
 ## [3.9.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.9.0) (2025-06-05)
 
@@ -23,7 +31,7 @@
 
 **Merged pull requests:**
 
-- \(maint\) Update vmpooler to version 3.7.0 [\#162](https://github.com/puppetlabs/vmpooler-deployment/pull/162) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(maint\) Update vmpooler to version 3.7.0 [\#162](https://github.com/puppetlabs/vmpooler-deployment/pull/162) ([isaac-jha](https://github.com/isaac-jha))
 
 ## [3.8.3](https://github.com/puppetlabs/vmpooler-deployment/tree/3.8.3) (2025-01-30)
 
@@ -62,7 +70,7 @@
 
 **Fixed bugs:**
 
-- \(RE-15163\) Call BGREWRITEAOF on the redis database every restart to reduce aof file size [\#144](https://github.com/puppetlabs/vmpooler-deployment/pull/144) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(RE-15163\) Call BGREWRITEAOF on the redis database every restart to reduce aof file size [\#144](https://github.com/puppetlabs/vmpooler-deployment/pull/144) ([isaac-jha](https://github.com/isaac-jha))
 
 ## [3.6.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.6.0) (2023-09-07)
 
@@ -78,7 +86,7 @@
 
 **Fixed bugs:**
 
-- \(maint\) Update vmpooler-provider-vsphere to 3.3.4 [\#139](https://github.com/puppetlabs/vmpooler-deployment/pull/139) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(maint\) Update vmpooler-provider-vsphere to 3.3.4 [\#139](https://github.com/puppetlabs/vmpooler-deployment/pull/139) ([isaac-jha](https://github.com/isaac-jha))
 
 ## [3.5.2](https://github.com/puppetlabs/vmpooler-deployment/tree/3.5.2) (2023-08-28)
 
@@ -86,7 +94,7 @@
 
 **Fixed bugs:**
 
-- \(maint\) Update vmpooler-provider-vsphere to 3.3.3 [\#137](https://github.com/puppetlabs/vmpooler-deployment/pull/137) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(maint\) Update vmpooler-provider-vsphere to 3.3.3 [\#137](https://github.com/puppetlabs/vmpooler-deployment/pull/137) ([isaac-jha](https://github.com/isaac-jha))
 
 ## [3.5.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.5.1) (2023-08-24)
 
@@ -102,7 +110,7 @@
 
 **Implemented enhancements:**
 
-- \(maint\) Update vmpooler to 3.5.0 and vmpooler-provider-vsphere to 3.3.2 [\#131](https://github.com/puppetlabs/vmpooler-deployment/pull/131) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(maint\) Update vmpooler to 3.5.0 and vmpooler-provider-vsphere to 3.3.2 [\#131](https://github.com/puppetlabs/vmpooler-deployment/pull/131) ([isaac-jha](https://github.com/isaac-jha))
 
 ## [3.4.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.4.1) (2023-08-22)
 
@@ -118,7 +126,7 @@
 
 **Implemented enhancements:**
 
-- \(maint\) Update vmpooler to 3.4.0, vmpooler-provider-gce to 1.3.0, and… [\#124](https://github.com/puppetlabs/vmpooler-deployment/pull/124) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(maint\) Update vmpooler to 3.4.0, vmpooler-provider-gce to 1.3.0, and… [\#124](https://github.com/puppetlabs/vmpooler-deployment/pull/124) ([isaac-jha](https://github.com/isaac-jha))
 
 ## [3.3.0](https://github.com/puppetlabs/vmpooler-deployment/tree/3.3.0) (2023-08-16)
 
@@ -126,7 +134,7 @@
 
 **Implemented enhancements:**
 
-- \(maint\) update redis\_reconnect\_attempts format and vmpooler gem [\#114](https://github.com/puppetlabs/vmpooler-deployment/pull/114) ([isaac-hammes](https://github.com/isaac-hammes))
+- \(maint\) update redis\_reconnect\_attempts format and vmpooler gem [\#114](https://github.com/puppetlabs/vmpooler-deployment/pull/114) ([isaac-jha](https://github.com/isaac-jha))
 - \(RE-15696\) Improve development experience [\#113](https://github.com/puppetlabs/vmpooler-deployment/pull/113) ([yachub](https://github.com/yachub))
 
 **Closed issues:**
