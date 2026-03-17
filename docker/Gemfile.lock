@@ -49,6 +49,7 @@ GEM
       signet (>= 0.16, < 2.a)
     httpclient (2.9.0)
       mutex_m
+    json (2.18.0)
     json (2.18.0-java)
     jwt (2.10.2)
       base64
@@ -64,7 +65,10 @@ GEM
     net-ldap (0.20.0)
       base64
       ostruct
+    nio4r (2.7.5)
     nio4r (2.7.5-java)
+    nokogiri (1.18.10-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.18.10-java)
       racc (~> 1.4)
     opentelemetry-api (1.7.0)
@@ -118,8 +122,11 @@ GEM
     prometheus-client (4.2.5)
       base64
     public_suffix (6.0.2)
+    puma (6.6.1)
+      nio4r (~> 2.0)
     puma (6.6.1-java)
       nio4r (~> 2.0)
+    racc (1.8.1)
     racc (1.8.1-java)
     rack (2.2.21)
     rack-protection (3.2.0)
@@ -160,7 +167,7 @@ GEM
     trailblazer-option (0.1.2)
     uber (0.1.0)
     uri (1.1.1)
-    vmpooler (3.8.1)
+    vmpooler (3.9.0)
       concurrent-ruby (~> 1.1)
       connection_pool (~> 2.4)
       deep_merge (~> 1.2)
@@ -190,19 +197,21 @@ GEM
       google-apis-compute_v1 (~> 0.14)
       googleauth (>= 0.16.2, < 1.4.0)
       vmpooler (~> 3.0)
-    vmpooler-provider-vsphere (3.3.4)
+    vmpooler-provider-vsphere (3.4.0)
       rbvmomi2 (>= 3.1, < 4.0)
       vmpooler (~> 3.0)
     zonefile (1.06)
 
 PLATFORMS
+  arm64-darwin-25
   universal-java-11
+  universal-java-17
 
 DEPENDENCIES
-  vmpooler (~> 3.0)
+  vmpooler (~> 3.9)
   vmpooler-dns-gcp (~> 1.0)
   vmpooler-provider-gce (~> 1.0)
-  vmpooler-provider-vsphere (~> 3.0)
+  vmpooler-provider-vsphere (~> 3.4)
 
 BUNDLED WITH
-   2.4.12
+   2.6.9
