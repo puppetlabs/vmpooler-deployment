@@ -6,7 +6,7 @@
 
 **Merged pull requests:**
 
-- Update vmpooler to 3.9.1 (rate limiter middleware fix) \[\#177\](https://github.com/puppetlabs/vmpooler-deployment/pull/177)
+- Update vmpooler to 3.9.1 (rate limiter middleware fix) [\#177](https://github.com/puppetlabs/vmpooler-deployment/pull/177) ([smahima27](https://github.com/smahima27))
 
 ## [3.10.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.1) (2026-03-17)
 
