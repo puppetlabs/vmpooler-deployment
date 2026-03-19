@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.10.2](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.2) (2026-03-19)
+
+[Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.10.1...3.10.2)
+
+**Merged pull requests:**
+
+- Update vmpooler to 3.9.1 (rate limiter middleware fix) \[\#177\](https://github.com/puppetlabs/vmpooler-deployment/pull/177)
+
 ## [3.10.1](https://github.com/puppetlabs/vmpooler-deployment/tree/3.10.1) (2026-03-17)
 
 [Full Changelog](https://github.com/puppetlabs/vmpooler-deployment/compare/3.10.0...3.10.1)
