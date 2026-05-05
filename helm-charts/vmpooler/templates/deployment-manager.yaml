@@ -34,6 +34,29 @@ spec:
       serviceAccountName: {{ include "vmpooler.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.manager.waitForRedis }}
+      initContainers:
+      - name: wait-for-redis
+        image: "{{ .Values.redis.image.registry }}/{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}"
+        imagePullPolicy: {{ .Values.redis.image.pullPolicy }}
+        command:
+        - /bin/sh
+        - -c
+        - |
+          until redis-cli -h redis-master -p 6379 -a "$REDIS_PASSWORD" ping | grep -q PONG; do
+            echo "Waiting for Redis to be ready..."
+            sleep 2
+          done
+          echo "Redis is ready."
+        env:
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis
+              key: redis-password
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 12 }}
+      {{- end }}
       containers:
       - name: {{ $fullName }}-manager
         securityContext:

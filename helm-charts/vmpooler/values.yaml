@@ -64,6 +64,10 @@ additionalConfigFiles: '/etc/vmpooler/config/pools.yaml'
 
 api:
   replicaCount: 1
+  # Set to true to add an init container that waits for Redis to accept
+  # connections before the API container starts. Useful in environments
+  # where Redis starts slowly (low resources).
+  waitForRedis: false
   resources:
     requests:
       cpu: 1500m
@@ -73,6 +77,10 @@ api:
       memory: 4Gi
 
 manager:
+  # Set to true to add an init container that waits for Redis to accept
+  # connections before the manager container starts. Useful in environments
+  # where Redis starts slowly (low resources).
+  waitForRedis: false
   resources:
     requests:
       cpu: 4000m
