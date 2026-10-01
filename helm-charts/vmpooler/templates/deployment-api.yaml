@@ -9,7 +9,7 @@ metadata:
     {{- include "vmpooler.labels" . | nindent 4 }}
     test: liveness
   annotations:
-    configmap.reloader.stakater.com/reload: "{{ .Values.configmapName }},vmpooler-pools"
+    configmap.reloader.stakater.com/reload: "{{ .Values.configmapName }},{{ .Values.poolsConfigMapName }}"
     secret.reloader.stakater.com/reload: 'redis'
 spec:
   replicas: {{ .Values.api.replicaCount }}
